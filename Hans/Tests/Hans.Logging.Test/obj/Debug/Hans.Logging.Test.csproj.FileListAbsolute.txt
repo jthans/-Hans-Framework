@@ -1,0 +1,17 @@
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.Logging.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.Logging.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.Logging.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.Logging.Test\bin\Debug\Hans.Logging.Test.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.Logging.Test\bin\Debug\Hans.Logging.Test.pdb
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.Logging.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.Logging.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.Logging.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.Logging.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.Logging.Test\obj\Debug\Hans.Logging.Test.csprojResolveAssemblyReference.cache
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.Logging.Test\obj\Debug\Hans.Logging.Test.csproj.CoreCompileInputs.cache
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.Logging.Test\obj\Debug\Hans.Logging.Test.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.Logging.Test\obj\Debug\Hans.Logging.Test.pdb
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.Logging.Test\bin\Debug\Hans.Logging.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.Logging.Test\bin\Debug\Hans.DependencyInjection.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.Logging.Test\bin\Debug\Hans.Logging.pdb
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.Logging.Test\bin\Debug\Hans.DependencyInjection.pdb

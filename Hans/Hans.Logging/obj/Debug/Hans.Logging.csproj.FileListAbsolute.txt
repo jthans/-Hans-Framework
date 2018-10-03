@@ -1,0 +1,8 @@
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Logging\bin\Debug\Hans.Logging.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Logging\bin\Debug\Hans.Logging.pdb
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Logging\obj\Debug\Hans.Logging.csproj.CoreCompileInputs.cache
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Logging\obj\Debug\Hans.Logging.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Logging\obj\Debug\Hans.Logging.pdb
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Logging\bin\Debug\Hans.DependencyInjection.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Logging\bin\Debug\Hans.DependencyInjection.pdb
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Logging\obj\Debug\Hans.Logging.csprojResolveAssemblyReference.cache

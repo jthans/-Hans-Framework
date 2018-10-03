@@ -1,0 +1,14 @@
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.JSON\bin\Debug\Hans.JSON.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.JSON\bin\Debug\Hans.JSON.pdb
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.JSON\bin\Debug\Hans.Extensions.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.JSON\bin\Debug\Hans.Logging.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.JSON\bin\Debug\Newtonsoft.Json.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.JSON\bin\Debug\Hans.Extensions.pdb
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.JSON\bin\Debug\Hans.Logging.pdb
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.JSON\bin\Debug\Newtonsoft.Json.xml
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.JSON\obj\Debug\Hans.JSON.csprojResolveAssemblyReference.cache
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.JSON\obj\Debug\Hans.JSON.csproj.CoreCompileInputs.cache
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.JSON\obj\Debug\Hans.JSON.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.JSON\obj\Debug\Hans.JSON.pdb
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.JSON\bin\Debug\Hans.DependencyInjection.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.JSON\bin\Debug\Hans.DependencyInjection.pdb
