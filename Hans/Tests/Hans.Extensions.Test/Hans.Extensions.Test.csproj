@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassExtensionsTest.cs" />
+    <Compile Include="ListExtensionsTest.cs" />
     <Compile Include="Models\TestClassAnimal.cs" />
     <Compile Include="Models\TestClassCar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

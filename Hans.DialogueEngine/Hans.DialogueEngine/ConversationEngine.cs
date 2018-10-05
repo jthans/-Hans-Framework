@@ -52,17 +52,48 @@ namespace Hans.DialogueEngine
         #region Instance Methods
 
         /// <summary>
+        ///  Activates a node, first checking if it's been told that it can, and activating all actions associated with the event.  Typically, this is capped off
+        ///     by the dialogue being presented.
+        /// </summary>
+        /// <param name="convoNode">The conversation node we're processing.</param>
+        public static void ActivateNode(ConversationNode convoNode)
+        {
+            // Ensure the node has been enabled first!
+            if (!convoNode.IsEnabled.HasValue)
+            {
+                ConversationEngine.AreConditionsMet(convoNode, true);
+            }
+
+            if (!convoNode.IsEnabled.Value)
+            {
+                log.LogMessage($"Conversation attempted to activate node { convoNode.Id }, but it hasn't been enabled yet.  Please run AreConditionsMet before attempting to execute.", Logging.Enums.LogLevel.Warning);
+                return;
+            }
+
+            // If the node's been enabled, execute all actions and make it the current node.
+            convoNode.DialogueActions?.ForEach(x =>
+            {
+                // If we have an action in the code, we'll execute this action.
+                if (dialogueActions.ContainsKey(x.Key))
+                {
+                    dialogueActions[x.Key].PerformAction(x.Params);
+                }
+            });
+        }
+
+        /// <summary>
         ///  Checks to see if the conditions on this node are met, and will set the value on the node
         ///     to reflect our calculations.
         /// </summary>
         /// <param name="convoNode">The conversation node to check eligibility.</param>
+        /// <param name="isAttempt">If this check is for an actual attempt - If so, we'll cache the value in the node.</param>
         /// <returns>If the node can execute.</returns>
-        public static bool AreConditionsMet(ConversationNode convoNode)
+        public static bool AreConditionsMet(ConversationNode convoNode, bool isAttempt = false)
         {
             // Run through each check, and ensure they all return true.
             //  We'll return as soon as one of the checks is false.
             bool checkSuccessful = true;
-            convoNode.RequiredChecks.ForEach(x =>
+            convoNode.RequiredChecks?.ForEach(x =>
             {
                 // Don't calculate if we've already failed one.
                 if (!checkSuccessful)
@@ -82,11 +113,16 @@ namespace Hans.DialogueEngine
                     log.LogMessage($"Dialogue Check { x.Key } Not Found. Checks FAIL.", Logging.Enums.LogLevel.Error);
                 }
             });
-            
-            convoNode.SetEnabled(checkSuccessful);
+
+            // If we're trying to execute this node, lock the condition result in the node.
+            if (isAttempt)
+            {
+                convoNode.SetEnabled(checkSuccessful);
+            }
+
             return checkSuccessful;
         }
-
+        
         #endregion
 
         #region Internal Methods

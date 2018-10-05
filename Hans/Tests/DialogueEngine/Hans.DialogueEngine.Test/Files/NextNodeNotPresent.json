@@ -1,0 +1,25 @@
+﻿{
+  "Name": "NextNodeNotPresent",
+  "Nodes": [
+    {
+      "Id": "3926c714-7b19-441b-9085-4d0e23b6f5ff",
+      "Initial": true,
+      "Dialogue": "Hello, Phil!",
+      "DialogueActions": null,
+      "NextNodes": [
+        {
+          "NextID": "b816f10b-126c-4e13-984d-aa1aeb0c11d8",
+          "Priority": 1
+        }
+      ],
+      "RequiredChecks": null
+    },
+    {
+      "Id": "185f25b4-6c30-4ecb-ade2-8b63895aab70",
+      "Initial": false,
+      "Dialogue": "Hello, Paul!",
+      "DialogueActions": null,
+      "RequiredChecks": null
+    }
+  ]
+}

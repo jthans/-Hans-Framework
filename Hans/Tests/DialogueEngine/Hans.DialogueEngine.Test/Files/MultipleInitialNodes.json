@@ -1,0 +1,19 @@
+{
+  "Name": "MultipleInitialNodes",
+  "Nodes": [
+    {
+      "Id": "3926c714-7b19-441b-9085-4d0e23b6f5ff",
+      "Initial": true,
+      "Dialogue": "Hello, Phil!",
+      "DialogueActions": null,
+      "RequiredChecks": null
+    },
+    {
+      "Id": "185f25b4-6c30-4ecb-ade2-8b63895aab70",
+      "Initial": true,
+      "Dialogue": "Hello, Paul!",
+      "DialogueActions": null,
+      "RequiredChecks": null
+    }
+  ]
+}

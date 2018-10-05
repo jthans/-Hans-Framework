@@ -18,6 +18,11 @@ namespace Hans.DialogueEngine.Entities
         public Guid Id { get; set; }
 
         /// <summary>
+        ///  If this GUID is the initial node of the conversational tree.
+        /// </summary>
+        public bool Initial { get; set; }
+
+        /// <summary>
         ///  The dialogue of this node, either said as a prompt, answer, etc.
         /// </summary>
         public string Dialogue { get; set; }
@@ -31,6 +36,11 @@ namespace Hans.DialogueEngine.Entities
         ///  Indicates if this node is enabled or not, null indicates a calculation has not been run.
         /// </summary>
         public bool? IsEnabled { get; private set; }
+
+        /// <summary>
+        ///  The list of nodes that are next in the sequence.
+        /// </summary>
+        public List<NextNodeModel> NextNodes { get; set; }
 
         /// <summary>
         ///  The checks required for this dialogue to be allowed to execute.

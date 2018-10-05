@@ -5,12 +5,36 @@ using System.Reflection;
 
 namespace Hans.Extensions
 {
+    /// <summary>
+    ///  Any extensions related to dealing with classes and their properties.
+    /// </summary>
     public static class ClassExtensions
     {
         /// <summary>
         ///  The logger for this class that will send out important information.
         /// </summary>
         private static readonly ILogger log = LoggerManager.CreateLogger(typeof(ClassExtensions));
+
+        /// <summary>
+        ///  Clears all properties in an instance of an object. This can be done from within the class, rather than overwriting with a new object.
+        /// </summary>
+        /// <param name="instance">The instance to clear values from.</param>
+        public static void ClearProperties(this object instance)
+        {
+            var propList = instance.GetType().GetProperties();
+            foreach (var propToClear in propList)
+            {
+                // Determine what default value to set for this property - If it's a value, we need to create a new instance. Otherwise, we'll do null.
+                object valToSet = null;
+                if (propToClear.PropertyType.IsValueType)
+                {
+                    valToSet = Activator.CreateInstance(propToClear.PropertyType);
+                }
+
+                // Set the calculated value.
+                propToClear.SetValue(instance, valToSet);
+            }
+        }
 
         /// <summary>
         ///  Copies the values of all visible properties from one class to another, if they're the same type.

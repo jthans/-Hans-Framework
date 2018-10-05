@@ -1,0 +1,19 @@
+﻿{
+  "Name": "DuplicateNodes",
+  "Nodes": [
+    {
+      "Id": "3926c714-7b19-441b-9085-4d0e23b6f5ff",
+      "Initial": true,
+      "Dialogue": "Hello, Phil!",
+      "DialogueActions": null,
+      "RequiredChecks": null
+    },
+    {
+      "Id": "3926c714-7b19-441b-9085-4d0e23b6f5ff",
+      "Initial": false,
+      "Dialogue": "Hello, Paul!",
+      "DialogueActions": null,
+      "RequiredChecks": null
+    }
+  ]
+}

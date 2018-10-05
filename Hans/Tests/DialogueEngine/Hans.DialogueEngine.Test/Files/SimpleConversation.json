@@ -1,0 +1,93 @@
+{
+  "Name": "SimpleConversation",
+  "Nodes": [
+    {
+      "Id": "3926c714-7b19-441b-9085-4d0e23b6f5ff",
+      "Initial": true,
+      "Dialogue": "Hello, Phil!",
+      "DialogueActions": null,
+      "NextNodes": [
+        {
+          "NextID": "b816f10b-126c-4e13-984d-aa1aeb0c11d8",
+          "Priority": 1
+        }
+      ],
+      "RequiredChecks": null
+    },
+    {
+      "Id": "b816f10b-126c-4e13-984d-aa1aeb0c11d8",
+      "Initial": false,
+      "Dialogue": "How ya doing?",
+      "DialogueActions": null,
+      "NextNodes": [
+        {
+          "NextID": "2f208d30-d645-4819-acc5-eea71c7a8873",
+          "Priority": 1
+        },
+        {
+          "NextID": "10ec3284-090e-4237-97fa-fca3fb3c0c51",
+          "Priority": 2
+        }
+      ],
+      "RequiredChecks": null
+    },
+    {
+      "Id": "2f208d30-d645-4819-acc5-eea71c7a8873",
+      "Initial": false,
+      "Dialogue": "Weather's pretty great, huh?",
+      "DialogueActions": null,
+      "NextNodes": [
+        {
+          "NextID": "c973ab24-b4a8-4e56-953f-c04a1e505ca3",
+          "Priority": 1
+        },
+        {
+          "NextID": "62a6e888-ac80-4550-a62b-f4616587251e",
+          "Priority": 2
+        }
+      ],
+      "RequiredChecks": null
+    },
+    {
+      "Id": "10ec3284-090e-4237-97fa-fca3fb3c0c51",
+      "Initial": false,
+      "Dialogue": "Alright man, never mind.",
+      "DialogueActions": null,
+      "RequiredChecks": null
+    },
+    {
+      "Id": "c973ab24-b4a8-4e56-953f-c04a1e505ca3",
+      "Initial": false,
+      "Dialogue": "I just love the sun!",
+      "DialogueActions": null,
+      "RequiredChecks": [ { "Key": "AlwaysFalse" } ]
+    },
+    {
+      "Id": "62a6e888-ac80-4550-a62b-f4616587251e",
+      "Initial": false,
+      "Dialogue": "Been gloomy all day.",
+      "DialogueActions": null,
+      "NextNodes": [
+        {
+          "NextID": "365e81f0-01b5-4954-aaf0-c8888dc21abf",
+          "Priority": 1
+        }
+      ],
+      "RequiredChecks": null
+    },
+    {
+      "Id": "365e81f0-01b5-4954-aaf0-c8888dc21abf",
+      "Initial": false,
+      "Dialogue": "Making me pretty sad.",
+      "DialogueActions": [ { "Key": "FileWriter" } ],
+      "RequiredChecks": null
+    },
+    {
+      "Id": "2cf56171-2de0-4cbe-8b25-366f30c86802",
+      "Initial": false,
+      "Dialogue": "Making me pretty sad.",
+      "DialogueActions": [ { "Key": "FileWriter" } ],
+      "RequiredChecks": [ { "Key": "AlwaysFalse" } ]
+    }
+  ]
+}

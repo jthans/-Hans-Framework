@@ -11,6 +11,24 @@ namespace Hans.Extensions.Test
     [TestClass]
     public class ClassExtensionsTest
     {
+        #region ClearProperties
+
+        /// <summary>
+        ///  Ensures that [rp[ertoes are successfully cleared when this method is called.  Checks both
+        ///     value types, and complex types.
+        /// </summary>
+        [TestMethod]
+        public void ClearProperties_ClearSuccesful()
+        {
+            var animalClass = new TestClassAnimal("Orangutan", true);
+            animalClass.ClearProperties();
+
+            Assert.AreEqual(animalClass.AnimalName, default(string));
+            Assert.AreEqual(animalClass.IsMammal, default(bool));
+        }
+
+        #endregion
+
         #region CopyPropertiesFromInstance
 
         /// <summary>

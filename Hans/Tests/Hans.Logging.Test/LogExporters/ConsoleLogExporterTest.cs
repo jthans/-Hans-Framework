@@ -64,7 +64,7 @@ namespace Hans.Logging.Test.LogExporters
             string testMessage = "This is a test log message.";
             this.consoleLogger.LogMessage(testMessage);
 
-            // Sleep a little so the logger has time to pass it.s
+            // Sleep a little so the logger has time to pass it. We won't see it in the Console until it's picked up.
             Thread.Sleep(250);
 
             // Ensure the console sees that value in the recorded values.

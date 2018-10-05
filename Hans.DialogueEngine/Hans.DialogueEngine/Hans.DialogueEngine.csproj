@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,13 +42,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conversation.cs" />
-    <Compile Include="Models\ConversationNode.cs" />
+    <Compile Include="ConversationEngine.cs" />
+    <Compile Include="Entities\ConversationNode.cs" />
+    <Compile Include="Entities\DialogueCheck.cs" />
+    <Compile Include="Entities\NextNodeModel.cs" />
+    <Compile Include="Interfaces\IConversationComponentMetadata.cs" />
+    <Compile Include="Interfaces\IDialogueAction.cs" />
+    <Compile Include="Interfaces\IExecutionAllowance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Hans\Hans.DependencyInjection\Hans.DependencyInjection.csproj">
+      <Project>{9e2aec3a-1f3f-4c05-b2ae-314bda18a613}</Project>
+      <Name>Hans.DependencyInjection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Hans\Hans.Extensions\Hans.Extensions.csproj">
+      <Project>{9bea5ef0-6ce4-4212-a7b0-697868d6751a}</Project>
+      <Name>Hans.Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Hans\Hans.JSON\Hans.JSON.csproj">
       <Project>{29B9A20A-7F7C-42C0-8750-8E8BA323A19B}</Project>
       <Name>Hans.JSON</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Hans\Hans.Logging\Hans.Logging.csproj">
+      <Project>{e5b52f6f-9c00-4f16-b270-e3b66cd8ce48}</Project>
+      <Name>Hans.Logging</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
