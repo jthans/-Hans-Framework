@@ -49,6 +49,11 @@ namespace Hans.DialogueEngine.Test.Constants
         public static Guid SimpleNodeEligibleNode = new Guid("62a6e888-ac80-4550-a62b-f4616587251e");
 
         /// <summary>
+        ///  ID of a node that is supposed to end the conversation.
+        /// </summary>
+        public static Guid SimpleNodeExitConversation = new Guid("10ec3284-090e-4237-97fa-fca3fb3c0c51");
+
+        /// <summary>
         ///  ID of a node that'll trigger a file writer.
         /// </summary>
         public static Guid SimpleNodeFileWriter = new Guid("365e81f0-01b5-4954-aaf0-c8888dc21abf");

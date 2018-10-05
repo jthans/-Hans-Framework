@@ -12,6 +12,34 @@ namespace Hans.DialogueEngine.Test
     [TestClass]
     public class ConversationTest
     {
+        #region Events
+
+        /// <summary>
+        ///  Ensures the conversation complete event throws successfully.
+        /// </summary>
+        [TestMethod]
+        public void ConversationComplete_EventFires()
+        {
+            Conversation testConvo = new Conversation();
+
+            // Set up the event.
+            bool eventFired = false;
+            testConvo.ConversationComplete += (sender, e) => 
+                                                {
+                                                    eventFired = true;
+                                                };
+
+            // Load the conversation, and jump to the second to last node.
+            this.LoadConversationFromFile(DialogueFiles.SimpleConversation, ref testConvo);
+            testConvo.JumpToNode(DialogueFiles.SimpleNodeMoveID);
+
+            // Move to the final node, then confirm the event fired.
+            bool moveSuccess = testConvo.MoveToNextNode(DialogueFiles.SimpleNodeExitConversation);
+            Assert.IsTrue(eventFired);
+        }
+
+        #endregion
+
         #region MoveToNextNode
 
         /// <summary>

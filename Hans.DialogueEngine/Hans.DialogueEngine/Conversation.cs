@@ -26,6 +26,11 @@ namespace Hans.DialogueEngine
         #region Properties
 
         /// <summary>
+        ///  An event we'll throw to indicate the conversation has completed.
+        /// </summary>
+        public event EventHandler ConversationComplete;
+
+        /// <summary>
         ///  The node currently being iterated on in this conversation.33
         /// </summary>
         public ConversationNode CurrentNode
@@ -37,6 +42,20 @@ namespace Hans.DialogueEngine
                 {
                     this.SetNodeAsCurrent(value);
                 }
+            }
+        }
+
+        /// <summary>
+        ///  When we throw the <see cref="ConversationComplete" /> event, this will trigger any listeners.
+        /// </summary>
+        /// <param name="e"></param>
+        protected virtual void OnConversationComplete(EventArgs e)
+        {
+            // Send the event.
+            EventHandler eventHandler = ConversationComplete;
+            if (eventHandler != null)
+            {
+                eventHandler(this, e);
             }
         }
 
@@ -208,12 +227,17 @@ namespace Hans.DialogueEngine
 
             // If any next nodes exist, we'll need to grab them and store them.
             this.NextNodes = new List<ConversationNode>();
-            if (convoNode.NextNodes != null)
+            if (convoNode.NextNodes != null && convoNode.NextNodes.Count > 0)
             {
                 foreach (var nodeNext in convoNode.NextNodes)
                 {
                     this.NextNodes.Add(this.NodeLookup[nodeNext.NextID]); // We can go ahead and do the lookup - Because we've already ensured all next nodes are available.
                 }
+            }
+            else
+            {
+                // Nowhere to go after this! Conversation must be finished.
+                this.OnConversationComplete(new EventArgs());
             }
         }
 
