@@ -1,6 +1,0 @@
-C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.DependencyInjection\bin\Debug\Hans.DependencyInjection.dll
-C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.DependencyInjection\bin\Debug\Hans.DependencyInjection.pdb
-C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.DependencyInjection\obj\Debug\Hans.DependencyInjection.csproj.CoreCompileInputs.cache
-C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.DependencyInjection\obj\Debug\Hans.DependencyInjection.dll
-C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.DependencyInjection\obj\Debug\Hans.DependencyInjection.pdb
-C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.DependencyInjection\obj\Debug\Hans.DependencyInjection.csprojResolveAssemblyReference.cache
