@@ -18,7 +18,8 @@ namespace Hans.DialogueEngine.Test
         [TestMethod]
         public void ActivateNode_ActivatesNodesWhenAble()
         {
-            File.Create(DialogueFiles.WriteValues);
+            var openFile = File.Create(DialogueFiles.WriteValues);
+            openFile.Close();
 
             // Load the conversation, and jump to a useful node for us to test.
             Conversation testConvo = new Conversation();

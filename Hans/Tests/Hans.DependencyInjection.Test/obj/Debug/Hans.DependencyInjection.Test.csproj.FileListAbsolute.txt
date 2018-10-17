@@ -1,5 +1,3 @@
-C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.DependencyInjection.Test\obj\Debug\Hans.DependencyInjection.Test.csprojResolveAssemblyReference.cache
-C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.DependencyInjection.Test\obj\Debug\Hans.DependencyInjection.Test.csproj.CoreCompileInputs.cache
 C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.DependencyInjection.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.DependencyInjection.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.DependencyInjection.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
@@ -11,5 +9,7 @@ C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.DependencyInjection.Test\
 C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.DependencyInjection.Test\bin\Debug\Hans.DependencyInjection.pdb
 C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.DependencyInjection.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.DependencyInjection.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.DependencyInjection.Test\obj\Debug\Hans.DependencyInjection.Test.csprojResolveAssemblyReference.cache
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.DependencyInjection.Test\obj\Debug\Hans.DependencyInjection.Test.csproj.CoreCompileInputs.cache
 C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.DependencyInjection.Test\obj\Debug\Hans.DependencyInjection.Test.dll
 C:\Users\taylo\Documents\Coding\Gaming\Hans\Tests\Hans.DependencyInjection.Test\obj\Debug\Hans.DependencyInjection.Test.pdb

@@ -1,10 +1,10 @@
 C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Extensions\bin\Debug\Hans.Extensions.dll
 C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Extensions\bin\Debug\Hans.Extensions.pdb
 C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Extensions\bin\Debug\Hans.Logging.dll
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Extensions\bin\Debug\Hans.DependencyInjection.dll
 C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Extensions\bin\Debug\Hans.Logging.pdb
+C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Extensions\bin\Debug\Hans.DependencyInjection.pdb
 C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Extensions\obj\Debug\Hans.Extensions.csprojResolveAssemblyReference.cache
 C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Extensions\obj\Debug\Hans.Extensions.csproj.CoreCompileInputs.cache
 C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Extensions\obj\Debug\Hans.Extensions.dll
 C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Extensions\obj\Debug\Hans.Extensions.pdb
-C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Extensions\bin\Debug\Hans.DependencyInjection.dll
-C:\Users\taylo\Documents\Coding\Gaming\Hans\Hans.Extensions\bin\Debug\Hans.DependencyInjection.pdb
