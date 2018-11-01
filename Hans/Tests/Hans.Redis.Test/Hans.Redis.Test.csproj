@@ -8,11 +8,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{00C66C64-3A0D-40F1-95B6-15C400FFBD30}</ProjectGuid>
+    <ProjectGuid>{A0C25E6F-EDFD-4E7B-8450-87BC2BF440F4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Hans.JSON.Test</RootNamespace>
-    <AssemblyName>Hans.JSON.Test</AssemblyName>
+    <RootNamespace>Hans.Redis.Test</RootNamespace>
+    <AssemblyName>Hans.Redis.Test</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -68,21 +68,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\JSONFiles.cs" />
-    <Compile Include="Constants\JSONStrings.cs" />
-    <Compile Include="JSONEntityTest.cs" />
-    <Compile Include="JSONTest.cs" />
-    <Compile Include="Models\TestJSONEntity.cs" />
-    <Compile Include="Models\TestNestedEntity.cs" />
+    <Compile Include="RedisDataAccessorTest.cs" />
+    <Compile Include="RedisHostTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Hans.JSON\Hans.JSON.csproj">
-      <Project>{29b9a20a-7f7c-42c0-8750-8e8ba323a19b}</Project>
-      <Name>Hans.JSON</Name>
+    <ProjectReference Include="..\..\Hans.Redis\Hans.Redis.csproj">
+      <Project>{83dfcd21-fd5b-4d73-879c-e0142c3394f2}</Project>
+      <Name>Hans.Redis</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
