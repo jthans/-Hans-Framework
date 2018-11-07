@@ -70,9 +70,9 @@ namespace Hans.Extensions
         /// </summary>
         /// <param name="class">The class that's being managed here.</param>
         /// <param name="methodName">The name of the method to create a generic method for.</param>
-        /// <param name="callType">The type that we're calling the method with - This will be the T.</param>
+        /// <param name="callTypes">The types that we're calling the method with - This will be the T.</param>
         /// <returns>The generic method that's built, ready to invoke.</returns>
-        public static MethodInfo MakeGenericMethodFromClass(this object @class, string methodName, Type callType)
+        public static MethodInfo MakeGenericMethodFromClass(this object @class, string methodName, params Type[] callTypes)
         {
             // Get the type of the class calling this.
             var classType = @class.GetType();
@@ -86,7 +86,7 @@ namespace Hans.Extensions
                 throw new MethodAccessException($"The method { methodName } could not be found in the classtype { classType.ToString() }. Ensure the method exists, and is public.");
             }
 
-            return callMethod.MakeGenericMethod(callType);
+            return callMethod.MakeGenericMethod(callTypes);
         }
     }
 }

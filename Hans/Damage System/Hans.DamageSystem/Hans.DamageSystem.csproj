@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9F864B6D-A3D6-426C-BF02-5C55B6404EFA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hans.DamageSystem</RootNamespace>
+    <AssemblyName>Hans.DamageSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DamageController.cs" />
+    <Compile Include="DamageMapper.cs" />
+    <Compile Include="Interfaces\ICriticalCalculator.cs" />
+    <Compile Include="Interfaces\IDamageDataManager.cs" />
+    <Compile Include="Interfaces\IDamageMapper.cs" />
+    <Compile Include="Interfaces\IElementalCalculator.cs" />
+    <Compile Include="Models\DamageUnit.cs" />
+    <Compile Include="Models\ModelPropertyConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Hans.DependencyInjection\Hans.DependencyInjection.csproj">
+      <Project>{9E2AEC3A-1F3F-4C05-B2AE-314BDA18A613}</Project>
+      <Name>Hans.DependencyInjection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Hans.Extensions\Hans.Extensions.csproj">
+      <Project>{9BEA5EF0-6CE4-4212-A7B0-697868D6751A}</Project>
+      <Name>Hans.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Hans.Logging\Hans.Logging.csproj">
+      <Project>{E5B52F6F-9C00-4F16-B270-E3B66CD8CE48}</Project>
+      <Name>Hans.Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
