@@ -25,6 +25,20 @@ namespace Hans.Redis.DAO
 
         #endregion
 
+        #region Properties
+
+        /// <summary>
+        ///  The hashing elements of the Redis accessor, used to not make this class so overwhelming.
+        /// </summary>
+        public RedisHashingAccessor Hashing { get; private set; }
+
+        /// <summary>
+        ///  The set elements of the Redis accessor, used to not make this class to overwhelming.
+        /// </summary>
+        public RedisSetAccessor Sets { get; private set; }
+
+        #endregion
+        
         #region Instance Methods
 
         /// <summary>
@@ -68,10 +82,14 @@ namespace Hans.Redis.DAO
                 this.redisDap.Configuration.Host = hostName;
                 this.redisDap.Configuration.Port = portNum;
                 this.redisDap.Connect();
+
+                // Assign all extender classes.
+                this.Hashing = new RedisHashingAccessor(this.redisDap, this.log);
+                this.Sets = new RedisSetAccessor(this.redisDap, this.log);
             }
             catch (SocketException ex)
             {
-                log.LogMessage($"Error talking to the Redis instance at { hostName }:{ portNum }.  Can't access the Redis service.");
+                log.LogMessage($"Error talking to the Redis instance at { hostName }:{ portNum }.  Can't access the Redis service. Ex: { ex.ToString() }");
                 this.redisDap = null;
             }
 
@@ -87,7 +105,8 @@ namespace Hans.Redis.DAO
         /// <returns>The value stored in this key, or null if not found.</returns>
         public string GetValue(string keyVal)
         {
-            log.LogMessage($"Redis: GET for key:{ keyVal }");
+            // Refresh the DAO, and return the current value.
+            this.redisDap?.ExecuteRedisCommand(this.log, RedisCommand.GET, keyVal);
             return this.redisDap?.Strings[keyVal].Get();
         }
 
@@ -98,8 +117,7 @@ namespace Hans.Redis.DAO
         /// <param name="valStr">Value string we're setting a value for.</param>
         public void SetValue(string keyVal, string valStr)
         {
-            log.LogMessage($"Redis: SET for key:{ keyVal }/val:{ valStr }");
-            this.redisDap?.SendCommand(RedisCommand.SET, keyVal, valStr);
+            this.redisDap?.ExecuteRedisCommand(this.log, RedisCommand.SET, keyVal, valStr);
         }
 
         #endregion

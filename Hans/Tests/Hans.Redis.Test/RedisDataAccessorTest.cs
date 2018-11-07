@@ -39,8 +39,6 @@ namespace Hans.Redis.Test
 
         #region Commands
 
-        #region Get/Set
-
         /// <summary>
         ///  Ensures that we can properly get/set a value in Redis.  This test needed to be done in tandem, as
         ///     in order to check that one is working, the other must be as well.
@@ -61,8 +59,6 @@ namespace Hans.Redis.Test
                 Assert.AreEqual(testValue, readResult);
             }
         }
-
-        #endregion
 
         #endregion
     }

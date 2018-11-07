@@ -50,9 +50,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Hans.Extensions\Hans.Extensions.csproj">
       <Project>{9bea5ef0-6ce4-4212-a7b0-697868d6751a}</Project>
       <Name>Hans.Extensions</Name>
@@ -61,6 +58,9 @@
       <Project>{e5b52f6f-9c00-4f16-b270-e3b66cd8ce48}</Project>
       <Name>Hans.Logging</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

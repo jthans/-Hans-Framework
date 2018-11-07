@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArrayExtensions.cs" />
     <Compile Include="ClassExtensions.cs" />
     <Compile Include="IntegerExtensions.cs" />
     <Compile Include="ListExtensions.cs" />

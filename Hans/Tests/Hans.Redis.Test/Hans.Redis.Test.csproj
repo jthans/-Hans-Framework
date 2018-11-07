@@ -68,9 +68,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtensionsTest.cs" />
     <Compile Include="RedisDataAccessorTest.cs" />
+    <Compile Include="RedisHashingTest.cs">
+      <DependentUpon>RedisDataAccessorTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="RedisHostTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RedisSetsTest.cs">
+      <DependentUpon>RedisDataAccessorTest.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
