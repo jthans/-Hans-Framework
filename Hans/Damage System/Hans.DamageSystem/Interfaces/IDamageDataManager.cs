@@ -1,4 +1,6 @@
-﻿namespace Hans.DamageSystem.Interfaces
+﻿using System.Collections.Generic;
+
+namespace Hans.DamageSystem.Interfaces
 {
     /// <summary>
     ///  Any class inheriting this interface can be responsible for managing damage storage/modification and returning
@@ -19,5 +21,13 @@
         /// </summary>
         /// <param name="entityId">The entity to stop tracking damage for.</param>
         void EndTrackingDamage(string entityId);
+
+        /// <summary>
+        ///  Applies damage (or healing, if the numbers are positive) to an entity.
+        /// </summary>
+        /// <param name="entityId">The entity this affects.</param>
+        /// <param name="damageToApply">The damage we're applying to the entity.</param>
+        /// <returns>The new damage values for the entity.</returns>
+        Dictionary<string, decimal> ApplyDamage(string entityId, Dictionary<string, decimal> damageToApply);
     }
 }

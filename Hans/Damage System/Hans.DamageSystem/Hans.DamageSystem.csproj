@@ -43,10 +43,10 @@
   <ItemGroup>
     <Compile Include="DamageController.cs" />
     <Compile Include="DamageMapper.cs" />
-    <Compile Include="Interfaces\ICriticalCalculator.cs" />
     <Compile Include="Interfaces\IDamageDataManager.cs" />
     <Compile Include="Interfaces\IDamageMapper.cs" />
-    <Compile Include="Interfaces\IElementalCalculator.cs" />
+    <Compile Include="Interfaces\IDamageTypeCalculator.cs" />
+    <Compile Include="Interfaces\IDamageTypeMetadata.cs" />
     <Compile Include="Models\DamageUnit.cs" />
     <Compile Include="Models\ModelPropertyConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

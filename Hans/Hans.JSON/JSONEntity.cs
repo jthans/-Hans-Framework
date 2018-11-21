@@ -1,6 +1,7 @@
 ﻿using Hans.Extensions;
 using Hans.Logging;
 using Hans.Logging.Interfaces;
+using Newtonsoft.Json;
 using System;
 using System.IO;
 
@@ -79,6 +80,15 @@ namespace Hans.JSON
             {
                 log.LogMessage($"Error reading file { filePath } when creating JSON entity. Ex: { ex.ToString() }", Logging.Enums.LogLevel.Error);
             }
+        }
+
+        /// <summary>
+        ///  Converts the entity to a string to JSON representation.
+        /// </summary>
+        /// <returns>JSON representation of the object.</returns>
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
         }
 
         #endregion

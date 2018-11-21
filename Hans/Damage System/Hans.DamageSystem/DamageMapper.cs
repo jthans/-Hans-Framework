@@ -15,7 +15,7 @@ namespace Hans.DamageSystem
     ///  Class responsible for calculating/holding a mapping from a model class, to stored methods/variables the damage system can understand.  This will allow us to accept any
     ///     DamageUnit model necessary for implementation.
     /// </summary>
-    public class DamageMapper<T> : IDamageMapper
+    public class DamageMapper<T> : IDamageMapper<T>
         where T : DamageUnit
     {
         /// <summary>
@@ -58,6 +58,29 @@ namespace Hans.DamageSystem
         {
             // Return a dictionary of the property and its value.
             return modelMapping.ToDictionary(x => x.PropertyName, x => x.GetterMethod((T)damageUnit));
+        }
+
+        /// <summary>
+        ///  Translates the standard dictionary tracker to the custom model this mapper tracks.
+        /// </summary>
+        /// <param name="damageTracker">The damage tracker we're modifying.</param>
+        /// <returns>The custom model containing information about the damage.</returns>
+        public T TranslateToModel(Dictionary<string, decimal> damageTracker)
+        {
+            // Create a damage unit, and store it as our custom type.
+            T emptyDamageUnit = (T) Activator.CreateInstance(typeof(T));
+            this.modelMapping.ForEach(x =>
+            {
+                // We don't need to modify a key here, the model doesn't have it.
+                if (!damageTracker.ContainsKey(x.PropertyName))
+                {
+                    return;
+                }
+
+                x.SetterMethod(emptyDamageUnit, damageTracker[x.PropertyName]);
+            });
+
+            return emptyDamageUnit;
         }
 
         #region Internal Methods
