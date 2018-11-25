@@ -99,6 +99,16 @@ namespace Hans.Redis.DAO
         #region Redis Commands
 
         /// <summary>
+        ///  Expires a key after a given number of seconds.
+        /// </summary>
+        /// <param name="keyToExpire"></param>
+        /// <param name="secondsToExpire"></param>
+        public void ExpireAfterSeconds(string keyToExpire, int secondsToExpire)
+        {
+            this.redisDap?.ExecuteRedisCommand(this.log, RedisCommand.EXPIRE, keyToExpire, secondsToExpire.ToString());
+        }
+
+        /// <summary>
         ///  Gets the current stored value of the requested key.
         /// </summary>
         /// <param name="keyVal">Key value to retrieve.</param>

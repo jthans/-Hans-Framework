@@ -44,11 +44,50 @@ namespace Hans.Redis.DAO
         #region Redis Commands
 
         /// <summary>
+        ///  Deletes the requested hash.
+        /// </summary>
+        /// <param name="hashName">The hash we'll want to delete.</param>
+        /// <exception cref="ArgumentNullException">Thrown if no hash name was passed to the method.</exception>
+        public void DeleteHash(string hashName)
+        {
+            // Ensure a hash name was passed.
+            if (string.IsNullOrEmpty(hashName))
+            {
+                throw new ArgumentNullException("hashName");
+            }
+
+            // Get all keys that need to be removed from the hash.
+            var keysToDel = this.GetKeys(hashName);
+
+            // Delete all fields from the given hash.
+            var paramArray = ArrayExtensions.Concatenate<string>(hashName, keysToDel);
+            this.redisDap?.ExecuteRedisCommand(this.log, RedisCommand.HDEL, paramArray);
+        }
+
+        /// <summary>
+        ///  Gets all keys for the stored hash.
+        /// </summary>
+        /// <param name="hashName">The name of the hash to search keys.</param>
+        /// <returns>All keys that exist for this hash.</returns>
+        /// <exception cref="ArgumentNullException">Thrown if no hash name was passed to the method.</exception>
+        public string[] GetKeys(string hashName)
+        {
+            // Ensure a hash name was passed, and at least one record is being passed.
+            if (string.IsNullOrEmpty(hashName))
+            {
+                throw new ArgumentNullException("hashName");
+            }
+
+            this.redisDap?.ExecuteRedisCommand(this.log, RedisCommand.HKEYS, hashName);
+            return this.redisDap?.Hash[hashName].Keys;
+        }
+
+        /// <summary>
         ///  Gets values for keys in a particular hash.
         /// </summary>
         /// <param name="hashName">Name of the hash we're accessing.</param>
         /// <param name="retrieveKeys">The keys to retrieve values for.</param>
-        /// <exception cref="ArgumentNullException">Thrown if no hasn name was passed to the method.</exception>
+        /// <exception cref="ArgumentNullException">Thrown if no hash name was passed to the method.</exception>
         public Dictionary<string, string> GetValues(string hashName, params string[] retrieveKeys)
         {
             // Ensure a hash name was passed, and at least one record is being passed.
@@ -78,10 +117,29 @@ namespace Hans.Redis.DAO
             foreach (var retrieveKey in retrieveKeys)
             {
                 var keyValue = this.redisDap?.Hash[hashName].Get(retrieveKey);
-                if (!string.IsNullOrEmpty(keyValue)) { resultsDic.Add(retrieveKey, keyValue); }
+                if (!string.IsNullOrEmpty(keyValue) && retrieveKey != keyValue) { resultsDic.Add(retrieveKey, keyValue); }
             }
 
             return resultsDic;
+        }
+
+        /// <summary>
+        ///  Increments a field in a hash by the given number.  Note that this is also the use for decrementing
+        ///     a hash value, with a negative number passed instead of a postive amount.
+        /// </summary>
+        /// <param name="hashName">Name of the hash to update.</param>
+        /// <param name="hashField">Field to increment.</param>
+        /// <param name="incrAmt">Amount to increment the field.</param>
+        /// <exception cref="ArgumentNullException">Thrown if no hash name was passed to the method.</exception>
+        public void IncrementField(string hashName, string hashField, decimal incrAmt)
+        {
+            // Ensure a hash name was passed.
+            if (string.IsNullOrEmpty(hashName))
+            {
+                throw new ArgumentNullException("hashName");
+            }
+
+            this.redisDap?.ExecuteRedisCommand(this.log, RedisCommand.HINCRBY, hashName, hashField, incrAmt.ToString());
         }
 
         /// <summary>
@@ -89,7 +147,7 @@ namespace Hans.Redis.DAO
         /// </summary>
         /// <param name="hashName">Name of the hash to create.</param>
         /// <param name="hashFields">Fields to be saved/updated in the hash, with their values.</param>
-        /// <exception cref="ArgumentNullException">Thrown if no hasn name was passed to the method.</exception>
+        /// <exception cref="ArgumentNullException">Thrown if no hash name was passed to the method.</exception>
         public void SetValues(string hashName, Dictionary<string, string> hashFields)
         {
             // Ensure a hash name was passed, and at least one record is being passed.

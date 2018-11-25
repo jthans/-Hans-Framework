@@ -53,7 +53,7 @@ namespace Hans.Redis.DAO
             // Ensure a set name was passed, and at least one record is being passed.
             if (string.IsNullOrEmpty(setName))
             {
-                throw new ArgumentNullException("hashName");
+                throw new ArgumentNullException("setName");
             }
 
             if (membersToAdd.Length <= 0)
@@ -67,16 +67,39 @@ namespace Hans.Redis.DAO
         }
 
         /// <summary>
+        ///  Deletes members from a set stored in the cache.
+        /// </summary>
+        /// <param name="setName">Name of the set that is stored.</param>
+        /// <param name="membersToDel">Which members to remove from the set.</param>
+        public void DeleteMembers(string setName, params string[] membersToDel)
+        {
+            // Ensure a set name was passed, and at least one record is being passed.
+            if (string.IsNullOrEmpty(setName))
+            {
+                throw new ArgumentNullException("setName");
+            }
+
+            if (membersToDel.Length <= 0)
+            {
+                return;
+            }
+
+            // Pass the command to the cache.
+            var paramArray = ArrayExtensions.Concatenate<string>(setName, membersToDel);
+            this.redisDap?.ExecuteRedisCommand(this.log, RedisCommand.SREM, paramArray);
+        }
+
+        /// <summary>
         ///  Gets all members existing in a set.
         /// </summary>
         /// <param name="setName">Name of the set to access members for.</param>
         /// <returns>All members in the requested set.</returns>
         public string[] GetAllMembers(string setName)
         {
-            // Ensure a set name was passed, and at least one record is being passed.
+            // Ensure a set name was passed.
             if (string.IsNullOrEmpty(setName))
             {
-                throw new ArgumentNullException("hashName");
+                throw new ArgumentNullException("setName");
             }
 
             this.redisDap?.ExecuteRedisCommand(this.log, RedisCommand.SMEMBERS, setName);

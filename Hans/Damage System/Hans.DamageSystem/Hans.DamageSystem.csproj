@@ -43,11 +43,15 @@
   <ItemGroup>
     <Compile Include="DamageController.cs" />
     <Compile Include="DamageMapper.cs" />
+    <Compile Include="Enums\LayerAction.cs" />
+    <Compile Include="Interfaces\IDamageController.cs" />
     <Compile Include="Interfaces\IDamageDataManager.cs" />
     <Compile Include="Interfaces\IDamageMapper.cs" />
     <Compile Include="Interfaces\IDamageTypeCalculator.cs" />
     <Compile Include="Interfaces\IDamageTypeMetadata.cs" />
+    <Compile Include="Models\DamageOverTime.cs" />
     <Compile Include="Models\DamageUnit.cs" />
+    <Compile Include="Models\LayerMask.cs" />
     <Compile Include="Models\ModelPropertyConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

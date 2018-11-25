@@ -39,6 +39,9 @@ namespace Hans.Redis.Test
 
         #endregion
 
+        /// <summary>
+        ///  Ensures that Redis adds multiple members to a set successfully.
+        /// </summary>
         [TestMethod]
         public void Redis_SetAddsMultipleMembersSuccessfully()
         {
@@ -59,6 +62,34 @@ namespace Hans.Redis.Test
                 Assert.IsTrue(readResult.Length == 2);
                 Assert.IsTrue(readResult.Any(x => x == testKeys[0]));
                 Assert.IsTrue(readResult.Any(x => x == testKeys[1]));
+            }
+        }
+
+        /// <summary>
+        ///  Ensures that Redis removes items from Sets correctly.
+        /// </summary>
+        [TestMethod]
+        public void Redis_SetRemovesMembersSuccessfully()
+        {
+            // Test Values
+            const string setKey = "REM_SET";
+            const string testKeyOne = "TEST_ONE";
+            const string testKeyTwo = "TEST_TWO";
+
+            string[] testMembers = new string[] { testKeyOne, testKeyTwo };
+
+            // Create an accessor, then set multiple set values, removing one.
+            using (var redisDAO = this.redisInstance.CreateAccessor())
+            {
+                // Set the values in the cache.
+                redisDAO.Sets.AddMembers(setKey, testMembers);
+
+                // Delete the members, and ensure that the second was deleted.
+                redisDAO.Sets.DeleteMembers(setKey, testKeyOne);
+
+                var readResult = redisDAO.Sets.GetAllMembers(setKey);
+                Assert.IsTrue(readResult.Length == 1);
+                Assert.IsTrue(readResult[0] == testKeyTwo);
             }
         }
 

@@ -8,6 +8,6 @@
         /// <summary>
         ///  The DamageType the calculation corresponds to.
         /// </summary>
-        string DamageType { get; set; }
+        string DamageType { get; }
     }
 }

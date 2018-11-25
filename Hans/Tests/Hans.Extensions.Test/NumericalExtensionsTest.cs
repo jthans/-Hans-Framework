@@ -6,7 +6,7 @@ namespace Hans.Extensions.Test
     ///  Tests the integer extensions contained in this class.
     /// </summary>
     [TestClass]
-    public class IntegerExtensionsTest
+    public class NumericalExtensionsTest
     {
         #region ParseFromString 
 
@@ -22,7 +22,7 @@ namespace Hans.Extensions.Test
             int testInt = 0;
             
             // Ensure it was parsed, and the number changed.
-            Assert.IsTrue(IntegerExtensions.ParseFromString(ref testInt, testString));
+            Assert.IsTrue(NumericalExtensions.ParseIntFromString(ref testInt, testString));
             Assert.IsTrue(testInt > 0);
         }
 
@@ -35,7 +35,7 @@ namespace Hans.Extensions.Test
             int testInt = 32;
             string testString = "NotAnInteger";
 
-            Assert.IsFalse(IntegerExtensions.ParseFromString(ref testInt, testString));
+            Assert.IsFalse(NumericalExtensions.ParseIntFromString(ref testInt, testString));
             Assert.AreEqual(0, testInt);
         }
 
