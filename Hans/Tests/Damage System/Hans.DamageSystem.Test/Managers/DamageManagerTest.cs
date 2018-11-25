@@ -12,6 +12,7 @@ namespace Hans.DamageSystem.Test.Managers
     [Export(typeof(IDamageDataManager))]
     public class DamageManagerTest : IDamageDataManager
     {
+        decimal entityHealth;
         List<LayerMask> layerMasks = new List<LayerMask>();
 
         public void AddLayer(string entityId, LayerMask layerMask)
@@ -21,12 +22,13 @@ namespace Hans.DamageSystem.Test.Managers
 
         public Dictionary<string, decimal> ApplyDamage(string entityId, Dictionary<string, decimal> damageToApply)
         {
-            throw new System.NotImplementedException();
+            this.entityHealth -= damageToApply["BaseHealth"];
+            return new Dictionary<string, decimal>() { { "BaseHealth", this.entityHealth } };
         }
 
         public void BeginTrackingDamage(string entityId, decimal startHealth)
         {
-            throw new System.NotImplementedException();
+            this.entityHealth = startHealth;
         }
 
         public void EndTrackingDamage(string entityId)

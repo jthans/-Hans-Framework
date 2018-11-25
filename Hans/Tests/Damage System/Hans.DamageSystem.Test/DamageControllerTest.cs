@@ -1,4 +1,5 @@
-﻿using Hans.DamageSystem.Test.Models;
+﻿using Hans.DamageSystem.Events;
+using Hans.DamageSystem.Test.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
@@ -10,6 +11,29 @@ namespace Hans.DamageSystem.Test
     [TestClass]
     public class DamageControllerTest
     {
+        /// <summary>
+        ///  Ensures that a death event is properly thrown when an entity dies.
+        /// </summary>
+        [TestMethod]
+        public void DamageController_DeathEventThrowsSuccessfully()
+        {
+            // Test Data
+            List<string> deadEntities = new List<string>();
+            const string entityName = "Johnny";
+
+            // Create the controller, and track the entity's health for a low amount, so we can kill the test entity.
+            DamageController<DamageUnitTest> testController = new DamageController<DamageUnitTest>();
+            testController.OnEntityDeath += (sender, args) => { deadEntities.Add((args as EntityDeathEventArgs).EntityId); };
+
+            testController.DamageManager.BeginTrackingDamage(entityName, 20);
+
+            DamageUnitTest testDamage = new DamageUnitTest() { BaseHealth = 500 };
+            testController.ApplyDamage(entityName, testDamage);
+
+            Assert.AreEqual(1, deadEntities.Count);
+            Assert.AreEqual(entityName, deadEntities[0]);
+        }
+
         /// <summary>
         ///  Ensures that the elemental calculators are successfully picked up, and parse the damages correctly.
         /// </summary>

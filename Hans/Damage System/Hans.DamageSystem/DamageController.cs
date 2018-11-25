@@ -1,4 +1,4 @@
-﻿using Hans.DamageSystem.Enums;
+﻿using Hans.DamageSystem.Events;
 using Hans.DamageSystem.Interfaces;
 using Hans.DamageSystem.Models;
 using Hans.DependencyInjection;
@@ -19,8 +19,17 @@ namespace Hans.DamageSystem
     public class DamageController<T> : MEFObject, IDamageController<T>
         where T : DamageUnit
     {
+        #region Events
+
+        /// <summary>
+        ///  Event thrown when an entity dies.
+        /// </summary>
+        public event EventHandler OnEntityDeath;
+
+        #endregion
+
         #region Fields
-        
+
         /// <summary>
         ///  The damage manager, that will allow us to communicate with the damage cache/storage.
         ///     NOTE: Public for Testing Purposes.
@@ -94,6 +103,13 @@ namespace Hans.DamageSystem
 
             // Apply the damage to the entity.
             var remainingDamage = this.DamageManager.ApplyDamage(entityId, normalizedDamage);
+
+            // Throw an event informing any listeners that this entity has died.
+            if (remainingDamage["BaseHealth"] <= 0)
+            {
+                this.OnEntityDeath(this, new EntityDeathEventArgs(entityId));
+            }
+
             return this.damageMapper.TranslateToModel(remainingDamage);
         }
 

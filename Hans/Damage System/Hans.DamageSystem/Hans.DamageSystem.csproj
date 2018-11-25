@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="DamageController.cs" />
     <Compile Include="DamageMapper.cs" />
-    <Compile Include="Enums\LayerAction.cs" />
+    <Compile Include="Events\EntityDeathEventArgs.cs" />
     <Compile Include="Interfaces\IDamageController.cs" />
     <Compile Include="Interfaces\IDamageDataManager.cs" />
     <Compile Include="Interfaces\IDamageMapper.cs" />
