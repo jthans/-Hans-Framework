@@ -1,9 +1,15 @@
-.vs
-bin
-obj
-packages
-*.suo
-*.user
-*.ide
-*.dll
-*.pdb
+# Ignoring all files - We'll explicitly choose what to include.
+/*
+/*/
+
+# Git Meta Files
+!.gitignore
+!.gitattributes
+!README.md
+
+# Whitelisted Unity Files
+!/Unity/*/ProjectSettings/
+!/Unity/*/Assets/
+
+# C#/.Net Projects
+!/Hans/*
