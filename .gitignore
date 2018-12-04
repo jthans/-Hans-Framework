@@ -8,8 +8,8 @@
 !README.md
 
 # Whitelisted Unity Files
-!/Unity/*/ProjectSettings/
-!/Unity/*/Assets/
+!/Unity/*/ProjectSettings/*
+!/Unity/*/Assets/*
 
 # C#/.Net Projects
 !/Hans/*
