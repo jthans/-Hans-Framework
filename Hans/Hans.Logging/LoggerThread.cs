@@ -18,11 +18,15 @@ namespace Hans.Logging
     {
         #region Fields
 
+#pragma warning disable 0649
+
         /// <summary>
         ///  All log exporters found using DI, we'll filter these out based on any configuration included.
         /// </summary>
         [ImportMany(typeof(ILogExporter))]
         private IEnumerable<Lazy<ILogExporter>> allLogExporters;
+
+#pragma warning restore 0649
 
         /// <summary>
         ///  The cancellation token that will allow us to safely stop the thread in this logger.
