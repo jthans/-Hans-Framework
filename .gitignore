@@ -1,6 +1,13 @@
-# Ignoring all files - We'll explicitly choose what to include.
-/*
-/*/
+# Ignoring C# Build Files
+.vs
+bin
+obj
+packages
+*.suo
+*.user
+*.ide
+*.dll
+*.pdb
 
 # Git Meta Files
 !.gitignore
@@ -8,8 +15,9 @@
 !README.md
 
 # Whitelisted Unity Files
-!/Unity/*/ProjectSettings/*
-!/Unity/*/Assets/*
+Unity/*
+!Unity/CorePackages/
 
-# C#/.Net Projects
-!/Hans/*
+Unity/CorePackages/*
+!Unity/CorePackages/ProjectSettings/
+!Unity/CorePackages/Assets/
