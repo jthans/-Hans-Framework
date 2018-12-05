@@ -14,12 +14,21 @@ variables:
 steps:
 - task: NuGetToolInstaller@0
 
+# Restore Nuget Packages
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
 
+# Build Solution Files
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+# Build NuGet Packages
+- task: NuGetCommand@2
+  inputs:
+    command: pack
+    packagesToPack: 'Hans.JSON.csproj', 'Hans.Logging.csproj'
+
