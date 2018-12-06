@@ -32,10 +32,11 @@ steps:
 - task: NuGetCommand@2
   displayName: 'Nuget Pack'
   inputs:
+    allowPackageConflicts: true
     command: pack
     configuration: '$(BuildConfiguration)'
     packagesToPack: '**\*.csproj;-:**\*Test.csproj'
-    versioningScheme: byBuildNumber
+    versioningScheme: byPrereleaseNumber
     majorVersion: '1'
     minorVersion: '0'
     patchVersion: '$(Build.BuildNumber)'
