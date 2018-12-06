@@ -34,7 +34,7 @@ steps:
   inputs:
     command: pack
     configuration: '$(BuildConfiguration)'
-    packagesToPack: 'Hans.JSON.csproj'
+    packagesToPack: '**/*.csproj'
     versioningScheme: byPreReleaseNumber
     majorVersion: '1'
     minorVersion: '0'
