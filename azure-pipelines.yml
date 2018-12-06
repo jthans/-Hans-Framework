@@ -33,6 +33,7 @@ steps:
   displayName: 'Hans.JSON Nuget Pack'
   inputs:
     command: pack
+    configuration: '$(BuildConfiguration)'
     packagesToPack: 'Hans.JSON.csproj'
     versioningScheme: byPreReleaseNumber
     majorVersion: '1'
