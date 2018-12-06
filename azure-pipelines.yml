@@ -16,11 +16,13 @@ steps:
 
 # Restore Nuget Packages
 - task: NuGetCommand@2
+  displayName: 'NuGet Restore'
   inputs:
     restoreSolution: '$(solution)'
 
 # Build Solution Files
 - task: VSBuild@1
+  displayName: '.Net Build'
   inputs:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
@@ -28,7 +30,20 @@ steps:
 
 # Build NuGet Packages
 - task: NuGetCommand@2
+  displayName: 'Hans.JSON Nuget Pack'
   inputs:
     command: pack
-    packagesToPack: 'Hans.JSON.csproj', 'Hans.Logging.csproj'
+    packagesToPack: 'Hans.JSON.csproj'
+    versioningScheme: byPreReleaseNumber
+    majorVersion: '1'
+    minorVersion: '0'
+    patchVersion: '$(Build.BuildNumber)'
 
+# Publish NuGet Packages
+- task: NuGetCommand@2
+  displayName: 'NuGet Push'
+  inputs:
+    command: push
+    nuGetFeedType: internal
+    packagesToPush: '$(build.artifactStagingDirectory)/*.nupkg'
+    publishVstsFeed: 'Hans-Nuget'
