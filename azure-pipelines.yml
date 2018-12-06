@@ -35,7 +35,7 @@ steps:
     allowPackageConflicts: true
     command: pack
     configuration: '$(BuildConfiguration)'
-    packagesToPack: '**\*.csproj;-:**\*Test.csproj'
+    packagesToPack: '**\*.csproj;!**\*Test.csproj'
     versioningScheme: byPrereleaseNumber
     majorVersion: '1'
     minorVersion: '0'
