@@ -30,11 +30,11 @@ steps:
 
 # Build NuGet Packages
 - task: NuGetCommand@2
-  displayName: 'Hans.JSON Nuget Pack'
+  displayName: 'Nuget Pack'
   inputs:
     command: pack
     configuration: '$(BuildConfiguration)'
-    packagesToPack: '**/*.csproj'
+    packagesToPack: '**\*.csproj;-:**\*Test.csproj'
     versioningScheme: byPreReleaseNumber
     majorVersion: '1'
     minorVersion: '0'
