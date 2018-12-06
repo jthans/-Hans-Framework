@@ -19,5 +19,8 @@ Unity/*
 !Unity/CorePackages/
 
 Unity/CorePackages/*
-!Unity/CorePackages/ProjectSettings/
 !Unity/CorePackages/Assets/
+!Unity/CorePackages/Libraries/
+!Unity/CorePackages/ProjectSettings/
+!Unity/CorePackages/Assembly-CSharp.csproj
+!Unity/CorePackages/CorePackages.sln
