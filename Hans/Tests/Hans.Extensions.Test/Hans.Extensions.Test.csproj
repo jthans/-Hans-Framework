@@ -70,6 +70,8 @@
   <ItemGroup>
     <Compile Include="ArrayExtensionsTest.cs" />
     <Compile Include="ClassExtensionsTest.cs" />
+    <Compile Include="EnumExtensionsTest.cs" />
+    <Compile Include="Enums\FlagEnumTest.cs" />
     <Compile Include="NumericalExtensionsTest.cs" />
     <Compile Include="ListExtensionsTest.cs" />
     <Compile Include="Models\TestClassAnimal.cs" />

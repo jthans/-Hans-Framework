@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="ArrayExtensions.cs" />
     <Compile Include="ClassExtensions.cs" />
+    <Compile Include="EnumExtensions.cs" />
     <Compile Include="NumericalExtensions.cs" />
     <Compile Include="ListExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
