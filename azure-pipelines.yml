@@ -29,7 +29,7 @@ steps:
     configuration: '$(buildConfiguration)'
     
 # Unit Testing
-- task: VSTest@2
+- task: DotNetCoreCLI@2
   displayName: 'Run Unit Tests'
   inputs:
     command: test
