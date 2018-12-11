@@ -43,6 +43,7 @@ namespace Hans.Redis.Test
         ///  Ensures that Redis adds multiple members to a set successfully.
         /// </summary>
         [TestMethod]
+        [TestCategory("LocalDependent")]
         public void Redis_SetAddsMultipleMembersSuccessfully()
         {
             // Test Values
@@ -69,6 +70,7 @@ namespace Hans.Redis.Test
         ///  Ensures that Redis removes items from Sets correctly.
         /// </summary>
         [TestMethod]
+        [TestCategory("LocalDependent")]
         public void Redis_SetRemovesMembersSuccessfully()
         {
             // Test Values
@@ -97,6 +99,7 @@ namespace Hans.Redis.Test
         ///  Ensures that a missing setName parameter will throw the proper exception.
         /// </summary>
         [TestMethod]
+        [TestCategory("LocalDependent")]
         public void Redis_HashingWithoutHashNameThrowsException()
         {
             // Create an accessor, then Get/Set a value.

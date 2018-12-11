@@ -43,6 +43,7 @@ namespace Hans.Redis.Test
         ///  Ensures that when a hash is requested to be deleted, deletes successfully.
         /// </summary>
         [TestMethod]
+        [TestCategory("LocalDependent")]
         public void Redis_HashingDeletesHashSuccessfully()
         {
             // Test Values
@@ -69,6 +70,7 @@ namespace Hans.Redis.Test
         ///  Ensures that we can get all keys for a hash in Redis successfully.
         /// </summary>
         [TestMethod]
+        [TestCategory("LocalDependent")]
         public void Redis_HashingGetsKeysSuccessfully()
         {
             // Test Values
@@ -99,6 +101,7 @@ namespace Hans.Redis.Test
         ///     - This method validates single keys (HGET/HSET).
         /// </summary>
         [TestMethod]
+        [TestCategory("LocalDependent")]
         public void Redis_HashingGetsOrSetsSingleValuesSuccessfully()
         {
             // Test Values
@@ -129,6 +132,7 @@ namespace Hans.Redis.Test
         ///     - This method validates single keys (HMGET/HMSET).
         /// </summary>
         [TestMethod]
+        [TestCategory("LocalDependent")]
         public void Redis_HashingGetsOrSetsMultipleValuesSuccessfully()
         {
             // Test Values
@@ -168,6 +172,7 @@ namespace Hans.Redis.Test
         ///  Ensures that a hash can increment/decrement values within the hash successfully.
         /// </summary>
         [TestMethod]
+        [TestCategory("LocalDependent")]
         public void Redis_HashingIncrementsValuesSuccessfully()
         {
             // Test Values
@@ -196,6 +201,7 @@ namespace Hans.Redis.Test
         ///  Ensures that a missing hashValue parameter will throw the proper exception.
         /// </summary>
         [TestMethod]
+        [TestCategory("LocalDependent")]
         public void Redis_HashingWithoutHashNameThrowsException()
         {
             // Create an accessor, then Get/Set a value.

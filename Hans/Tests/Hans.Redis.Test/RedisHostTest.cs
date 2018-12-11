@@ -14,6 +14,7 @@ namespace Hans.Redis.Test
         ///  Ensures the Redis instance starts successfully when requested.
         /// </summary>
         [TestMethod]
+        [TestCategory("LocalDependent")]
         public void RedisHost_ProcessStartsSuccessfully()
         {
             // Create a new Redis host, and ensure the process is running.
@@ -43,6 +44,7 @@ namespace Hans.Redis.Test
         ///  Ensures the process terminates successfully when the object is finished being used.
         /// </summary>
         [TestMethod]
+        [TestCategory("LocalDependent")]
         public void RedisHost_ProcessTerminatesSuccessfully()
         {
             // Create a new Redis host, and ensure the process is running.
@@ -58,6 +60,7 @@ namespace Hans.Redis.Test
         ///  Ensures we successfully return an active accessor, when the service is running.
         /// </summary>
         [TestMethod]
+        [TestCategory("LocalDependent")]
         public void RedisHost_ReturnsAccessorWhileRunning()
         {
             // Build the test host.
@@ -70,6 +73,7 @@ namespace Hans.Redis.Test
         }
 
         [TestMethod]
+        [TestCategory("LocalDependent")]
         public void RedisHost_ReturnsNullAccessorWhileNotRunning()
         {
             // Build the test host.

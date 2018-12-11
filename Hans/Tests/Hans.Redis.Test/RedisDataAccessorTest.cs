@@ -44,6 +44,7 @@ namespace Hans.Redis.Test
         ///     in order to check that one is working, the other must be as well.
         /// </summary>
         [TestMethod]
+        [TestCategory("LocalDependent")]
         public void Redis_GetsOrSetsValueSuccessfully()
         {
             // Test Values
