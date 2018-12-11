@@ -27,6 +27,14 @@ steps:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    
+# Unit Testing
+- task: VSTest@2
+  displayName: 'Run Unit Tests'
+  inputs:
+    command: test
+    projects: '**\*Test.csproj'
+    arguments: '--configuration $(BuildConfiguration) --collect "Code coverage" --filter -Trait:"LocalDependent"'
 
 # Build NuGet Packages
 - task: NuGetCommand@2
