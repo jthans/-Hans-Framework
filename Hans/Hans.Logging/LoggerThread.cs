@@ -23,7 +23,7 @@ namespace Hans.Logging
         /// <summary>
         ///  All log exporters found using DI, we'll filter these out based on any configuration included.
         /// </summary>
-        [ImportMany(typeof(ILogExporter), AllowRecomposition = true)]
+        [ImportMany(typeof(ILogExporter))]
         private IEnumerable<Lazy<ILogExporter>> allLogExporters;
 
 #pragma warning restore 0649

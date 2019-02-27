@@ -11,6 +11,11 @@ namespace Hans.DependencyInjection
     public static class MEFBootstrapper
     {
         /// <summary>
+        ///  Error thrown when the bootstrapper is used before initialization.
+        /// </summary>
+        private readonly static string bootstrapperError = "Bootstrapper Not Initialized - .Build() Must Be Called.";
+
+        /// <summary>
         ///  Composition container to pull all exports for the registered interfaces, so we can grab objects that we need.
         /// </summary>
         private static CompositionContainer compositionContainer;
@@ -28,7 +33,13 @@ namespace Hans.DependencyInjection
         {
             objCatalog = new AggregateCatalog();
             objCatalog.Catalogs.Add(new DirectoryCatalog(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)));
+        }
 
+        /// <summary>
+        ///  Builds the composition container with all necessary import/exports.
+        /// </summary>
+        public static void Build()
+        {
             // Initialize a new container looking at all exports in the given directory.
             compositionContainer = new CompositionContainer(objCatalog);
         }
@@ -40,8 +51,6 @@ namespace Hans.DependencyInjection
         public static void RegisterPath(string filePath)
         {
             objCatalog.Catalogs.Add(new DirectoryCatalog(filePath));
-            compositionContainer = new CompositionContainer(objCatalog);
-
         }
 
         /// <summary>
@@ -50,6 +59,11 @@ namespace Hans.DependencyInjection
         /// <param name="objectToResolve">The object to resolve dependencies for.</param>
         public static void ResolveDependencies(MEFObject objectToResolve)
         {
+            if (compositionContainer == null)
+            {
+                throw new Exception(bootstrapperError);
+            }
+
             compositionContainer.ComposeParts(objectToResolve);
         }
 
@@ -60,6 +74,11 @@ namespace Hans.DependencyInjection
         /// <returns>A collection of all objects inheriting this interface.</returns>
         public static IEnumerable<T> ResolveMany<T>()
         {
+            if (compositionContainer == null)
+            {
+                throw new Exception(bootstrapperError);
+            }
+
             return compositionContainer.GetExports<T>().Select(x => x.Value);
         }
 
@@ -71,6 +90,11 @@ namespace Hans.DependencyInjection
         /// <returns></returns>
         public static IEnumerable<Lazy<T, TMetaData>> ResolveManyWithMetaData<T, TMetaData>()
         {
+            if (compositionContainer == null)
+            {
+                throw new Exception(bootstrapperError);
+            }
+
             return compositionContainer.GetExports<T, TMetaData>();
         }
     }
