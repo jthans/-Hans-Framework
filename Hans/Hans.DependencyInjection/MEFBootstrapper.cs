@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
 using System.Linq;
@@ -15,16 +16,41 @@ namespace Hans.DependencyInjection
         private static CompositionContainer compositionContainer;
 
         /// <summary>
+        ///  Catalog holding all path registration, that we'll use to search with MEF for dependencies.
+        /// </summary>
+        private static AggregateCatalog objCatalog;
+
+        /// <summary>
         ///  Instantiates a new instance of the <see cref="MEFBootstrapper" /> clas.  As this is a static constructor,
         ///     it will be run the first time the class is accessed.  It sets up the container to DI objects in.
         /// </summary>
         static MEFBootstrapper()
         {
-            var objCatalog = new AggregateCatalog();
+            objCatalog = new AggregateCatalog();
             objCatalog.Catalogs.Add(new DirectoryCatalog(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)));
 
             // Initialize a new container looking at all exports in the given directory.
             compositionContainer = new CompositionContainer(objCatalog);
+        }
+
+        /// <summary>
+        ///  Registers a path with the MEF system, to search for dependencies.
+        /// </summary>
+        /// <param name="filePath">The file path to register.</param>
+        public static void RegisterPath(string filePath)
+        {
+            objCatalog.Catalogs.Add(new DirectoryCatalog(filePath));
+            compositionContainer = new CompositionContainer(objCatalog);
+
+        }
+
+        /// <summary>
+        ///  Takes an MEFObject item, and resolves all dependencies lying within with the composition container.
+        /// </summary>
+        /// <param name="objectToResolve">The object to resolve dependencies for.</param>
+        public static void ResolveDependencies(MEFObject objectToResolve)
+        {
+            compositionContainer.ComposeParts(objectToResolve);
         }
 
         /// <summary>
