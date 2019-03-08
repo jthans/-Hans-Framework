@@ -1,4 +1,5 @@
-﻿using Hans.Inventory.Core.Exceptions;
+﻿using Hans.DependencyInjection;
+using Hans.Inventory.Core.Exceptions;
 using Hans.Inventory.Core.Test.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -11,6 +12,20 @@ namespace Hans.Inventory.Core.Test
     [TestClass]
     public class InventoryTest
     {
+        #region Assembly Management
+
+        /// <summary>
+        ///  Initializes the assembly by building the DI framework container.
+        /// </summary>
+        /// <param name="context">Context giving explanation about the tests.</param>
+        [AssemblyInitialize]
+        public static void AssemblyInit(TestContext context)
+        {
+            MEFBootstrapper.Build();
+        }
+
+        #endregion
+
         #region AddItem
 
         /// <summary>

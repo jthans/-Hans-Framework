@@ -1,4 +1,5 @@
-﻿using Hans.Redis.Constants;
+﻿using Hans.DependencyInjection;
+using Hans.Redis.Constants;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Net.Sockets;
 
@@ -10,6 +11,20 @@ namespace Hans.Redis.Test
     [TestClass]
     public class RedisHostTest
     {
+        #region Assembly Management
+
+        /// <summary>
+        ///  Initializes the assembly by building the DI framework container.
+        /// </summary>
+        /// <param name="context">Context giving explanation about the tests.</param>
+        [AssemblyInitialize]
+        public static void AssemblyInit(TestContext context)
+        {
+            MEFBootstrapper.Build();
+        }
+
+        #endregion
+
         /// <summary>
         ///  Ensures the Redis instance starts successfully when requested.
         /// </summary>

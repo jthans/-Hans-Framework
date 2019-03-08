@@ -62,6 +62,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Hans.DependencyInjection\Hans.DependencyInjection.csproj">
+      <Project>{9E2AEC3A-1F3F-4C05-B2AE-314BDA18A613}</Project>
+      <Name>Hans.DependencyInjection</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Hans.Inventory.Core\Hans.Inventory.Core.csproj">
       <Project>{8f405299-987c-4804-ada1-a58126eef44d}</Project>
       <Name>Hans.Inventory.Core</Name>

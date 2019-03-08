@@ -62,6 +62,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Hans.DependencyInjection\Hans.DependencyInjection.csproj">
+      <Project>{9E2AEC3A-1F3F-4C05-B2AE-314BDA18A613}</Project>
+      <Name>Hans.DependencyInjection</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Hans.Logging\Hans.Logging.csproj">
       <Project>{e5b52f6f-9c00-4f16-b270-e3b66cd8ce48}</Project>
       <Name>Hans.Logging</Name>

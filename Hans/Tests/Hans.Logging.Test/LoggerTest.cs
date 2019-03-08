@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Hans.DependencyInjection;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Hans.Logging.Test
 {
@@ -16,6 +17,7 @@ namespace Hans.Logging.Test
         [AssemblyInitialize]
         public static void InitializeLoggerTests(TestContext testContext)
         {
+            MEFBootstrapper.Build();
             LoggerManager.StartLogging();
         }
 

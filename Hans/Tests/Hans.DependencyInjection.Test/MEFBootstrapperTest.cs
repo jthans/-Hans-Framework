@@ -11,6 +11,20 @@ namespace Hans.DependencyInjection.Test
     [TestClass]
     public class MEFBootstrapperTest
     {
+        #region Assembly Management
+
+        /// <summary>
+        ///  Initializes the assembly by building the DI framework container.
+        /// </summary>
+        /// <param name="context">Context giving explanation about the tests.</param>
+        [AssemblyInitialize]
+        public static void AssemblyInit(TestContext context)
+        {
+            MEFBootstrapper.Build();
+        }
+
+        #endregion
+
         /// <summary>
         ///  Ensures that the bootstrapper can resolve an interface.
         /// </summary>

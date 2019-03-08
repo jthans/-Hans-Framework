@@ -1,4 +1,5 @@
-﻿using Hans.DialogueEngine.Test.Constants;
+﻿using Hans.DependencyInjection;
+using Hans.DialogueEngine.Test.Constants;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
@@ -12,6 +13,20 @@ namespace Hans.DialogueEngine.Test
     [TestClass]
     public class ConversationTest
     {
+        #region Assembly Management
+
+        /// <summary>
+        ///  Initializes the assembly by building the DI framework container.
+        /// </summary>
+        /// <param name="context">Context giving explanation about the tests.</param>
+        [AssemblyInitialize]
+        public static void AssemblyInit(TestContext context)
+        {
+            MEFBootstrapper.Build();
+        }
+
+        #endregion
+
         #region Events
 
         /// <summary>

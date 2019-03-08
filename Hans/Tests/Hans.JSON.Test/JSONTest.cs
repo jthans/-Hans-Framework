@@ -1,4 +1,5 @@
-﻿using Hans.JSON.Test.Constants;
+﻿using Hans.DependencyInjection;
+using Hans.JSON.Test.Constants;
 using Hans.JSON.Test.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
@@ -11,6 +12,20 @@ namespace Hans.JSON.Test
     [TestClass]
     public class JSONTest
     {
+        #region Assembly Management
+
+        /// <summary>
+        ///  Initializes the assembly by building the DI framework container.
+        /// </summary>
+        /// <param name="context">Context giving explanation about the tests.</param>
+        [AssemblyInitialize]
+        public static void AssemblyInit(TestContext context)
+        {
+            MEFBootstrapper.Build();
+        }
+
+        #endregion
+
         #region Test Management
 
         /// <summary>

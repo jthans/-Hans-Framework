@@ -1,5 +1,6 @@
 ﻿using Hans.DamageSystem.Events;
 using Hans.DamageSystem.Test.Models;
+using Hans.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
@@ -11,6 +12,20 @@ namespace Hans.DamageSystem.Test
     [TestClass]
     public class DamageControllerTest
     {
+        #region Assembly Management
+
+        /// <summary>
+        ///  Initializes the assembly by building the DI framework container.
+        /// </summary>
+        /// <param name="context">Context giving explanation about the tests.</param>
+        [AssemblyInitialize]
+        public static void AssemblyInit(TestContext context)
+        {
+            MEFBootstrapper.Build();
+        }
+
+        #endregion
+
         /// <summary>
         ///  Ensures that a death event is properly thrown when an entity dies.
         /// </summary>

@@ -72,6 +72,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Hans.DependencyInjection\Hans.DependencyInjection.csproj">
+      <Project>{9E2AEC3A-1F3F-4C05-B2AE-314BDA18A613}</Project>
+      <Name>Hans.DependencyInjection</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Hans.DialogueEngine\Hans.DialogueEngine\Hans.DialogueEngine.csproj">
       <Project>{db577f00-7aa6-489a-a4e0-6514cd8cbb3f}</Project>
       <Name>Hans.DialogueEngine</Name>
