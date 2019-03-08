@@ -103,6 +103,16 @@ namespace Hans.Inventory.Core
         }
 
         /// <summary>
+        ///  Registers an entity in the inventory system, by adding a registration for the entity.
+        /// </summary>
+        /// <returns>Which category the entity falls under.</returns>
+        public int RegisterEntity()
+        {
+            this.cachedInventory.Add(new Dictionary<Guid, InventoryElement>());
+            return this.cachedInventory.Count - 1;
+        }
+
+        /// <summary>
         ///  Removes an item from the inventory collection, ensuring some actually does exist in the given category.
         /// </summary>
         /// <param name="itemToRemove">The item to remove from the inventory.</param>

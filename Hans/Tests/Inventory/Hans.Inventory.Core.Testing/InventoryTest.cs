@@ -100,6 +100,24 @@ namespace Hans.Inventory.Core.Test
 
         #endregion
 
+        #region RegisterEntity
+
+        /// <summary>
+        ///  Confirms that an entity can be registered successfully, returning the correct value.
+        /// </summary>
+        [TestMethod]
+        public void RegisterEntity_EntityRegistersSuccessfully()
+        {
+            // Create the test inventory, and test item.
+            Inventory testInv = new Inventory(5);
+            TestInventoryItem testItem = new TestInventoryItem();
+
+            var entityCategory = testInv.RegisterEntity();
+            Assert.AreEqual(5, entityCategory);
+        }
+
+        #endregion
+
         #region RemoveItem
 
         /// <summary>
