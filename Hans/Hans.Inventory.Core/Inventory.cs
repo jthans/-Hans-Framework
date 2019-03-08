@@ -5,7 +5,6 @@ using Hans.Logging;
 using Hans.Logging.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Hans.Inventory.Core
 {
@@ -22,7 +21,7 @@ namespace Hans.Inventory.Core
         ///     variable, or we can simply run off of a single inventory, if categorization/speed is not as critical.
         ///     For larger inventories, where many items can be a factor, looking at a particular category can speed up the process.
         /// </summary>
-        Dictionary<Guid, InventoryElement>[] cachedInventory;
+        List<Dictionary<Guid, InventoryElement>> cachedInventory;
 
         /// <summary>
         ///  Creates a logger for this class, so we can output information about what's happening.
@@ -42,10 +41,10 @@ namespace Hans.Inventory.Core
         {
             // Creates this inventory with a size passed.
             log.LogMessage($"Inventory being created with { numCategories } categories available.");
-            this.cachedInventory = new Dictionary<Guid, InventoryElement>[numCategories];
+            this.cachedInventory = new List<Dictionary<Guid, InventoryElement>>();
             for (var newCat = 0; newCat < numCategories; newCat++)
             {
-                this.cachedInventory[newCat] = new Dictionary<Guid, InventoryElement>();
+                this.cachedInventory.Add(new Dictionary<Guid, InventoryElement>());
             }
         }
 
@@ -86,7 +85,7 @@ namespace Hans.Inventory.Core
         {
             // Build the dictionary of category/quantity combos.
             Dictionary<int, int> categoryDic = new Dictionary<int, int>();
-            for (var i = 0; i < this.cachedInventory.Length; i++)
+            for (var i = 0; i < this.cachedInventory.Count; i++)
             {
                 // If this category has the item stored, add it with its quantity.
                 if (this.cachedInventory[i].ContainsKey(itemSearch.Id))
@@ -161,13 +160,13 @@ namespace Hans.Inventory.Core
             if (!categoryNum.HasValue)
             {
                 // If we're managing more than 1 category, we must know which category to modify.
-                if (this.cachedInventory.Length > 1) { throw new ArgumentNullException("categoryNum", $"Inventory is set up to manage { this.cachedInventory.Length } categories, selection must be passed."); }
+                if (this.cachedInventory.Count > 1) { throw new ArgumentNullException("categoryNum", $"Inventory is set up to manage { this.cachedInventory.Count } categories, selection must be passed."); }
                 categoryNum = 0; // We're only managing one - Modify the default collection.
             }
             else if (categoryNum.Value < 0 ||
-                        categoryNum.Value > this.cachedInventory.Length)
+                        categoryNum.Value > this.cachedInventory.Count)
             {
-                throw new ArgumentOutOfRangeException("categoryNum", $"Inventory has categories 0 - { this.cachedInventory.Length }.  Attempted to access category { categoryNum.Value }, out of range.");
+                throw new ArgumentOutOfRangeException("categoryNum", $"Inventory has categories 0 - { this.cachedInventory.Count }.  Attempted to access category { categoryNum.Value }, out of range.");
             }
 
             return categoryNum;
