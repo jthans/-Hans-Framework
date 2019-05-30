@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using Hans.DamageSystem.Interfaces;
 using Hans.DamageSystem.Models;
@@ -10,6 +11,7 @@ namespace Hans.DamageSystem.Local
     ///  Damage Manager that manages any damage tracking locally within this class.  We don't want to reach out to any external services here.  This is a local-focused
     ///     library, for game testing and possibly a full release if it runs well enough.
     /// </summary>
+    [Export(typeof(IDamageDataManager))]
     public class LocalDamageManager : IDamageDataManager
     {
         #region Constructors
