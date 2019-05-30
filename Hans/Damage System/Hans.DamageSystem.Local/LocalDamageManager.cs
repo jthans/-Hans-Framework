@@ -14,7 +14,7 @@ namespace Hans.DamageSystem.Local
     [Export(typeof(IDamageDataManager))]
     public class LocalDamageManager : IDamageDataManager
     {
-        #region Constructors
+        #region Properties
 
         /// <summary>
         ///  Dictionary that tracks the health existing for a particular entity.
@@ -28,6 +28,16 @@ namespace Hans.DamageSystem.Local
 
         #endregion
 
+        #region Constructors
+
+        public LocalDamageManager()
+        {
+            this._healthCollection = new Dictionary<string, Dictionary<string, decimal>>();
+            this._layerCollection = new Dictionary<string, LayerMask[]>();
+        }
+
+        #endregion
+
         /// <summary>
         ///  Adds a layer to the storage.
         /// </summary>
@@ -37,6 +47,11 @@ namespace Hans.DamageSystem.Local
         {
             if (!this._layerCollection.ContainsKey(entityId))
             {
+                if (this._layerCollection[entityId] == null)
+                {
+                    this._layerCollection[entityId] = new LayerMask[0];
+                }
+
                 this._layerCollection[entityId] = this._layerCollection[entityId].Concat(new LayerMask[] { layerMask }).ToArray();
             }
         }
