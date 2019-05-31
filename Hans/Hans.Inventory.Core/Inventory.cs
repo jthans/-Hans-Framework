@@ -83,6 +83,12 @@ namespace Hans.Inventory.Core
         /// <returns>The item profile, and how it's managed in the DB.</returns>
         public InventoryItemProfile GetItemProfile(IIInventoryItem itemSearch)
         {
+            // Ensure we're requiring information.
+            if (itemSearch == null)
+            {
+                return null;
+            }
+
             // Build the dictionary of category/quantity combos.
             Dictionary<int, int> categoryDic = new Dictionary<int, int>();
             for (var i = 0; i < this.cachedInventory.Count; i++)
