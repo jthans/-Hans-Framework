@@ -26,6 +26,7 @@ namespace Hans.Logging.Loggers
 
         /// <summary>
         ///  Logs a message to the <see cref="LoggerManager" />, where it will be queued and exported.
+        ///     TODO: Implement "Params" Option that Allows Tags
         /// </summary>
         /// <param name="logMsg">Message to be logged.</param>
         /// <param name="logLevel">At what level to log the message at.</param>

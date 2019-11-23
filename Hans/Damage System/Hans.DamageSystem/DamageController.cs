@@ -96,10 +96,14 @@ namespace Hans.DamageSystem
         {
             // Get a standard dictionary from the DamageUnit.
             var normalizedDamage = this.damageMapper.Normalize(damageAmt);
+            this.log.LogMessage($"Normalized Damage: { normalizedDamage.Select(x => $"{ x.Key }: { x.Value } ")}");
 
             // We need to track each damage type, and see if any modifiers need to occur based on current entity statistics.
             this.CalculateLayerEffects(entityId, ref normalizedDamage);
+            this.log.LogMessage($"Layer-Effect Damage: { normalizedDamage.Select(x => $"{ x.Key }: { x.Value } ")}");
+
             this.CalculateDamageTypeEffects(ref normalizedDamage);
+            this.log.LogMessage($"Damage-Type Damage: { normalizedDamage.Select(x => $"{ x.Key }: { x.Value } ")}");
 
             // Apply the damage to the entity.
             var remainingDamage = this.DamageManager.ApplyDamage(entityId, normalizedDamage);
