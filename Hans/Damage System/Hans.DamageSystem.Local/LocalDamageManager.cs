@@ -106,7 +106,12 @@ namespace Hans.DamageSystem.Local
         /// <returns>The list of layers currently present on entity.</returns>
         public LayerMask[] GetLayersForEntity(string entityId)
         {
-            return this._layerCollection[entityId];
+            if (this._layerCollection.ContainsKey(entityId))
+            {
+                return this._layerCollection[entityId];
+            }
+
+            return new LayerMask[0];
         }
 
         /// <summary>
@@ -116,7 +121,10 @@ namespace Hans.DamageSystem.Local
         /// <param name="layerId">Which layer we're removing.</param>
         public void RemoveLayer(string entityId, string layerId)
         {
-            this._layerCollection[entityId] = this._layerCollection[entityId].Where(x => x.Id != layerId).ToArray();
+            if (this._layerCollection.ContainsKey(entityId))
+            {
+                this._layerCollection[entityId] = this._layerCollection[entityId].Where(x => x.Id != layerId).ToArray();
+            }
         }
 
         /// <summary>
