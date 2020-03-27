@@ -11,6 +11,11 @@
         public Vertex[] Endpoints { get; set; }
 
         /// <summary>
+        ///  Grabs the length of the line, when needed in calculations.
+        /// </summary>
+        public double Length { get { return CoordinateHelper.CalculateLengthOfLine(this); } }
+
+        /// <summary>
         ///  Grabs the midpoint of this line, when needed in calculations.
         /// </summary>
         public Point Midpoint { get { return CoordinateHelper.CalculateMidpointOfLine(this); } }
