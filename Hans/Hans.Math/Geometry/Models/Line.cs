@@ -11,6 +11,11 @@
         public Vertex[] Endpoints { get; set; }
 
         /// <summary>
+        ///  Grabs the midpoint of this line, when needed in calculations.
+        /// </summary>
+        public Point Midpoint { get { return CoordinateHelper.CalculateMidpointOfLine(this); } }
+
+        /// <summary>
         ///  Initializes a new instance of the <see cref="Line" /> class.
         /// </summary>
         /// <param name="p1">Point #1 Coords</param>
