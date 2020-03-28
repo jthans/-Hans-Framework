@@ -9,6 +9,34 @@ namespace Hans.Extensions.Test
     [TestClass]
     public class ListExtensionsTest
     {
+        #region IsSameCycle
+
+        /// <summary>
+        ///  Ensures the IsSameCycle method returns true when a cycle is present.
+        /// </summary>
+        [TestMethod]
+        public void IsSameCycle_ReturnsTrueWhenSuccess()
+        {
+            var listOne = new List<int> { 3, 4, 6, 7, 9, 2 };
+            var listTwo = new List<int> { 7, 9, 2, 3, 4, 6 };
+
+            Assert.IsTrue(listOne.IsSameCycle(listTwo));
+        }
+
+        /// <summary>
+        ///  Ensures the IsSameCycle method returns false when a cycle is not present.
+        /// </summary>
+        [TestMethod]
+        public void IsSameCycle_ReturnsFalseWhenUntrue()
+        {
+            var listOne = new List<int> { 3, 4, 6, 7, 9, 2 };
+            var listTwo = new List<int> { 7, 9, 2, 8, 4, 6 };
+
+            Assert.IsFalse(listOne.IsSameCycle(listTwo));
+        }
+
+        #endregion
+
         #region GetRandomEntry
 
         /// <summary>

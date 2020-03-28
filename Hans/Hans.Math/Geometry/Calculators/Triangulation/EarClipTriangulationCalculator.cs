@@ -21,5 +21,33 @@ namespace Hans.Math.Geometry.Calculators
         {
             throw new System.NotImplementedException();
         }
+
+        /// <summary>
+        ///  Removes the next ear clipping from the given polygon, and returns if it's the last remaining triangle within the shape.
+        /// </summary>
+        /// <param name="currentPoly">The polygon this iteration will work on.</param>
+        /// <param name="triangles">List of triangles/ear-clippings found in this polygon.</param>
+        /// <returns>If this is the last ear-clipping (meaning we're left with a triangle) to terminate the loop.</returns>
+        private bool RemoveNextEarClipping(Polygon currentPoly, ref List<Polygon> triangles)
+        {
+            // If we're left with a triangle, add it to our list and terminate the loop.
+            if (currentPoly.Vertices.Count == 3)
+            {
+                triangles.Add(currentPoly);
+                return true;
+            }
+
+            // todo
+            // find list of all convex (sticking out) triangles in the polygon
+            // can skip any that are concave
+            // iterate over those to find first ear
+            // remove ear, call this method again
+            for (var i = 1; i <= currentPoly.Vertices.Count; i++)
+            {
+
+            }
+
+            return true;
+        }
     }
 }
