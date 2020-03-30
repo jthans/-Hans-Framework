@@ -1,8 +1,11 @@
-﻿namespace Hans.Math.Geometry.Models
+﻿using System;
+
+namespace Hans.Math.Geometry.Models
 {
     /// <summary>
     ///  Represents a Vertex in 2D Space - X/Y Coords, along with other supporting information.
     /// </summary>
+    [Serializable]
     public sealed class Vertex : Point
     {
         /// <summary>
@@ -11,6 +14,14 @@
         public int Index { get; set; }
 
         #region Constructors
+
+        /// <summary>
+        ///  Initializes a new instance of the <see cref="Vertex" /> class.
+        /// </summary>
+        public Vertex()
+        {
+
+        }
 
         /// <summary>
         ///  Initializes a new instance of the <see cref="Vertex" /> class, with coordinate information only.

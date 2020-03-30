@@ -25,6 +25,14 @@ namespace Hans.Math.Geometry.Models
         #region Constructors
 
         /// <summary>
+        ///  Initializes a new instance of the <see cref="Point" /> class.
+        /// </summary>
+        public Point()
+        {
+
+        }
+
+        /// <summary>
         ///  Initializes a new instance of the <see cref="Point" /> class, with X/Y coords.
         /// </summary>
         /// <param name="x">X Coord</param>
