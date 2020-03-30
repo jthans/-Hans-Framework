@@ -1,8 +1,11 @@
-﻿namespace Hans.Math.Geometry.Models
+﻿using System;
+
+namespace Hans.Math.Geometry.Models
 {
     /// <summary>
     ///  Defines a Line object, with 2 points and a given distance between them.
     /// </summary>
+    [Serializable]
     public sealed class Line
     {
         /// <summary>
