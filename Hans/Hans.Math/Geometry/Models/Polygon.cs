@@ -27,6 +27,14 @@ namespace Hans.Math.Geometry.Models
         public IList<Vertex> Vertices { get; set; }
 
         /// <summary>
+        ///  Initializes a new instance of the <see cref="Polygon" /> class.
+        /// </summary>
+        public Polygon()
+        {
+
+        }
+
+        /// <summary>
         ///  Initializes a new instance of the <see cref="Polygon" /> class, including line definitions.
         /// </summary>
         /// <param name="vertices">Vertices that make up the polygon.</param>
