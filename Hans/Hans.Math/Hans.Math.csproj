@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Hans.Extensions\Hans.Extensions.csproj" />
+    <ProjectReference Include="..\Hans.Extensions.Standard\Hans.Extensions.Standard.csproj" />
   </ItemGroup>
 
 </Project>
