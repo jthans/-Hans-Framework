@@ -47,7 +47,7 @@ steps:
     configuration: '$(BuildConfiguration)'
     includeReferencedProjects: true
     packagesToPack: 'Hans\**\*.csproj;!**\*Test.csproj'
-    versioningScheme: byBuildNumber
+    versioningScheme: byPrereleaseNumber
     majorVersion: '1'
     minorVersion: '0'
     patchVersion: '$(Build.BuildNumber)'
