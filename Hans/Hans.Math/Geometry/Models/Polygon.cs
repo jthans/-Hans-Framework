@@ -24,7 +24,7 @@ namespace Hans.Math.Geometry.Models
         /// <summary>
         ///  List of vertices in the polygon, including any indexing information as well as point coordinates.
         /// </summary>
-        public IList<Vertex> Vertices { get; private set; }
+        public IList<Vertex> Vertices { get; set; }
 
         /// <summary>
         ///  Initializes a new instance of the <see cref="Polygon" /> class, including line definitions.
