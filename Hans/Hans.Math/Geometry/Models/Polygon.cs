@@ -1,4 +1,6 @@
 ﻿using Hans.Extensions;
+using Hans.Logging;
+using Hans.Logging.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,11 @@ namespace Hans.Math.Geometry.Models
         ///  The number of digits to use when calculating congruency.
         /// </summary>
         private const int CongruencyAngleResolution = 2;
+
+        /// <summary>
+        ///  Logger for this model, to provide logs outward.
+        /// </summary>
+        private readonly ILogger log = LoggerManager.CreateLogger(typeof(Polygon));
 
         /// <summary>
         ///  Private container for the vertices in this polygon.
@@ -83,6 +90,7 @@ namespace Hans.Math.Geometry.Models
         {
             if (this.Vertices.Count != otherPoly.Vertices.Count)
             {
+                this.log.LogMessage($"Congruency Check Failed. { this.Vertices.Count } is not equal to { otherPoly.Vertices.Count }.");
                 return false;
             }
 
@@ -92,6 +100,7 @@ namespace Hans.Math.Geometry.Models
             // Ensure it has the same line lengths, in the same order, as the other polygon.
             if (!theseLineLengths.IsSameCycle(thoseLineLengths))
             {
+                this.log.LogMessage($"Congruency Check Failed. Line lengths { string.Join(",", theseLineLengths) } are not a cycle of { string.Join(",", thoseLineLengths) }.");
                 return false;
             }
 
@@ -100,6 +109,7 @@ namespace Hans.Math.Geometry.Models
 
             if (!thesePolyAngles.IsSameCycle(thosePolyAngles))
             {
+                this.log.LogMessage($"Congruency Check Failed. Angles { string.Join(",", thesePolyAngles) } are not a cycle of { string.Join(",", thosePolyAngles) }.");
                 return false;
             }
 
