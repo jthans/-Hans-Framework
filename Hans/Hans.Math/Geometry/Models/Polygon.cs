@@ -17,6 +17,11 @@ namespace Hans.Math.Geometry.Models
         private const int CongruencyAngleResolution = 2;
 
         /// <summary>
+        ///  Private container for the vertices in this polygon.
+        /// </summary>
+        private IList<Vertex> _vertices { get; set; }
+
+        /// <summary>
         ///  List of lines in the polygon, containing any length or vertex information needed.
         /// </summary>
         public IList<Line> Edges { get; set; }
@@ -24,7 +29,10 @@ namespace Hans.Math.Geometry.Models
         /// <summary>
         ///  List of vertices in the polygon, including any indexing information as well as point coordinates.
         /// </summary>
-        public IList<Vertex> Vertices { get; set; }
+        public IList<Vertex> Vertices {
+            get { return this._vertices; }
+            set { this._vertices = value; this.MapLinesFromVertices(this._vertices); }
+        }
 
         /// <summary>
         ///  Initializes a new instance of the <see cref="Polygon" /> class.
@@ -41,7 +49,6 @@ namespace Hans.Math.Geometry.Models
         public Polygon(IList<Vertex> vertices)
         {
             this.Vertices = vertices;
-            this.MapLinesFromVertices(this.Vertices);
         }
 
         /// <summary>
