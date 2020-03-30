@@ -45,7 +45,6 @@ steps:
     allowPackageConflicts: true
     command: pack
     configuration: '$(BuildConfiguration)'
-    includeReferencedProjects: true
     packagesToPack: 'Hans\**\*.csproj;!**\*Test.csproj'
     versioningScheme: byPrereleaseNumber
     majorVersion: '1'
