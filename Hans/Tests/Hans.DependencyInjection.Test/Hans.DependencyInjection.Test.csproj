@@ -67,9 +67,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Hans.DependencyInjection\Hans.DependencyInjection.csproj">
-      <Project>{9e2aec3a-1f3f-4c05-b2ae-314bda18a613}</Project>
-      <Name>Hans.DependencyInjection</Name>
+    <ProjectReference Include="..\..\Hans.DependencyInjection.Standard\Hans.DependencyInjection.Standard.csproj">
+      <Project>{b0725e46-7fd9-43b8-b3ff-b49bde89f866}</Project>
+      <Name>Hans.DependencyInjection.Standard</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
