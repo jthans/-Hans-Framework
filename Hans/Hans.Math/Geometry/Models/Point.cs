@@ -5,6 +5,7 @@ namespace Hans.Math.Geometry.Models
     /// <summary>
     ///  Represents a "Point" in 2D space.
     /// </summary>
+    [Serializable]
     public class Point
     {
         #region Properties

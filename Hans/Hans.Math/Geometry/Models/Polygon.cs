@@ -1,4 +1,5 @@
 ﻿using Hans.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,6 +8,7 @@ namespace Hans.Math.Geometry.Models
     /// <summary>
     ///  Represents a polygon in 2D space - Allows us, given a series of points or vertices, to describe a polygon in space.
     /// </summary>
+    [Serializable]
     public class Polygon
     {
         /// <summary>
