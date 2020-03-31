@@ -49,7 +49,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hans.DialogueEngine", "Hans
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hans.DamageSystem.Local", "Damage System\Hans.DamageSystem.Local\Hans.DamageSystem.Local.csproj", "{D3D22D72-B61D-4C6A-B348-CC2CAE2CF090}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hans.Math", "Hans.Math\Hans.Math.csproj", "{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hans.Math.Standard", "Hans.Math\Hans.Math.Standard.csproj", "{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hans.Math.Test", "Tests\Hans.Math.Test\Hans.Math.Test.csproj", "{CA136840-1E31-49DA-AE8A-4FA85533CBBD}"
 EndProject
