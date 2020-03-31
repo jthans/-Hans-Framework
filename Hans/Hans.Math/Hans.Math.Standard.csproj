@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Hans.Math.Standard</AssemblyName>
+    <RootNamespace>Hans.Math.Standard</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hans.Extensions.Standard\Hans.Extensions.Standard.csproj" />
+  </ItemGroup>
+
+</Project>
