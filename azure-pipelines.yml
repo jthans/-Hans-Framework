@@ -42,13 +42,13 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: 'Nuget Pack'
   inputs:
-    command: 'pack'
+    command: pack
     nobuild: true
     allowPackageConflicts: true
     configuration: '$(BuildConfiguration)'
     packagesToPack: 'Hans\**\*.csproj;!**\*Test.csproj'
     versioningScheme: byPrereleaseNumber
-    arguments: '--no-dependencies --force --no-cache'
+    arguments: '--force --no-cache'
 
 # Publish NuGet Packages
 - task: NuGetCommand@2
