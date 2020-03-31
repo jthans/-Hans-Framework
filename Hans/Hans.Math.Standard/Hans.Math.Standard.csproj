@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Hans.Math.Standard</AssemblyName>
+    <RootNamespace>Hans.Math.Standard</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
