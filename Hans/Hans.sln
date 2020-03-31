@@ -49,19 +49,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hans.DialogueEngine", "Hans
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hans.DamageSystem.Local", "Damage System\Hans.DamageSystem.Local\Hans.DamageSystem.Local.csproj", "{D3D22D72-B61D-4C6A-B348-CC2CAE2CF090}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hans.Math", "Hans.Math\Hans.Math.csproj", "{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hans.Math.Test", "Tests\Hans.Math.Test\Hans.Math.Test.csproj", "{CA136840-1E31-49DA-AE8A-4FA85533CBBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hans.Extensions.Standard", "Hans.Extensions.Standard\Hans.Extensions.Standard.csproj", "{CF554E95-909D-4A2E-9821-B466B00E03DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hans.Extensions.Standard", "Hans.Extensions.Standard\Hans.Extensions.Standard.csproj", "{CF554E95-909D-4A2E-9821-B466B00E03DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hans.Logging.Standard", "Hans.Logging.Standard\Hans.Logging.Standard.csproj", "{DF6F7C47-5467-4988-828F-E43EDEFF3EEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hans.Logging.Standard", "Hans.Logging.Standard\Hans.Logging.Standard.csproj", "{DF6F7C47-5467-4988-828F-E43EDEFF3EEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hans.DependencyInjection.Standard", "Hans.DependencyInjection.Standard\Hans.DependencyInjection.Standard.csproj", "{B0725E46-7FD9-43B8-B3FF-B49BDE89F866}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hans.DependencyInjection.Standard", "Hans.DependencyInjection.Standard\Hans.DependencyInjection.Standard.csproj", "{B0725E46-7FD9-43B8-B3FF-B49BDE89F866}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hans.JSON.Standard", "Hans.JSON.Standard\Hans.JSON.Standard.csproj", "{D83D2DFA-24BD-4983-B9FF-32CB5B6266EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hans.JSON.Standard", "Hans.JSON.Standard\Hans.JSON.Standard.csproj", "{D83D2DFA-24BD-4983-B9FF-32CB5B6266EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hans.DialogueEngine.Standard", "Hans.DialogueEngine.Standard\Hans.DialogueEngine.Standard.csproj", "{690410B3-C998-403C-A126-072994163E3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hans.DialogueEngine.Standard", "Hans.DialogueEngine.Standard\Hans.DialogueEngine.Standard.csproj", "{690410B3-C998-403C-A126-072994163E3B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hans.Math.Standard", "Hans.Math.Standard\Hans.Math.Standard.csproj", "{2B34B4DE-7363-457F-9A58-7EDD134E83DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -363,22 +363,6 @@ Global
 		{D3D22D72-B61D-4C6A-B348-CC2CAE2CF090}.Release|x64.Build.0 = Release|Any CPU
 		{D3D22D72-B61D-4C6A-B348-CC2CAE2CF090}.Release|x86.ActiveCfg = Release|Any CPU
 		{D3D22D72-B61D-4C6A-B348-CC2CAE2CF090}.Release|x86.Build.0 = Release|Any CPU
-		{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}.Debug|ARM.Build.0 = Debug|Any CPU
-		{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}.Debug|x64.Build.0 = Debug|Any CPU
-		{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}.Debug|x86.Build.0 = Debug|Any CPU
-		{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}.Release|ARM.ActiveCfg = Release|Any CPU
-		{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}.Release|ARM.Build.0 = Release|Any CPU
-		{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}.Release|x64.ActiveCfg = Release|Any CPU
-		{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}.Release|x64.Build.0 = Release|Any CPU
-		{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}.Release|x86.ActiveCfg = Release|Any CPU
-		{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}.Release|x86.Build.0 = Release|Any CPU
 		{CA136840-1E31-49DA-AE8A-4FA85533CBBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CA136840-1E31-49DA-AE8A-4FA85533CBBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA136840-1E31-49DA-AE8A-4FA85533CBBD}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -475,6 +459,22 @@ Global
 		{690410B3-C998-403C-A126-072994163E3B}.Release|x64.Build.0 = Release|Any CPU
 		{690410B3-C998-403C-A126-072994163E3B}.Release|x86.ActiveCfg = Release|Any CPU
 		{690410B3-C998-403C-A126-072994163E3B}.Release|x86.Build.0 = Release|Any CPU
+		{2B34B4DE-7363-457F-9A58-7EDD134E83DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B34B4DE-7363-457F-9A58-7EDD134E83DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B34B4DE-7363-457F-9A58-7EDD134E83DA}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{2B34B4DE-7363-457F-9A58-7EDD134E83DA}.Debug|ARM.Build.0 = Debug|Any CPU
+		{2B34B4DE-7363-457F-9A58-7EDD134E83DA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2B34B4DE-7363-457F-9A58-7EDD134E83DA}.Debug|x64.Build.0 = Debug|Any CPU
+		{2B34B4DE-7363-457F-9A58-7EDD134E83DA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2B34B4DE-7363-457F-9A58-7EDD134E83DA}.Debug|x86.Build.0 = Debug|Any CPU
+		{2B34B4DE-7363-457F-9A58-7EDD134E83DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B34B4DE-7363-457F-9A58-7EDD134E83DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B34B4DE-7363-457F-9A58-7EDD134E83DA}.Release|ARM.ActiveCfg = Release|Any CPU
+		{2B34B4DE-7363-457F-9A58-7EDD134E83DA}.Release|ARM.Build.0 = Release|Any CPU
+		{2B34B4DE-7363-457F-9A58-7EDD134E83DA}.Release|x64.ActiveCfg = Release|Any CPU
+		{2B34B4DE-7363-457F-9A58-7EDD134E83DA}.Release|x64.Build.0 = Release|Any CPU
+		{2B34B4DE-7363-457F-9A58-7EDD134E83DA}.Release|x86.ActiveCfg = Release|Any CPU
+		{2B34B4DE-7363-457F-9A58-7EDD134E83DA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
