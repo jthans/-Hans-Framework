@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hans.DependencyInjection.Standard\Hans.DependencyInjection.Standard.csproj" />
+    <ProjectReference Include="..\Hans.Extensions.Standard\Hans.Extensions.Standard.csproj" />
+    <ProjectReference Include="..\Hans.JSON.Standard\Hans.JSON.Standard.csproj" />
+    <ProjectReference Include="..\Hans.Logging.Standard\Hans.Logging.Standard.csproj" />
+  </ItemGroup>
+
+</Project>
