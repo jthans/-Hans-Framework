@@ -66,9 +66,9 @@
       <Project>{df6f7c47-5467-4988-828f-e43edeff3eea}</Project>
       <Name>Hans.Logging.Standard</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Hans.Math\Hans.Math.csproj">
+    <ProjectReference Include="..\..\Hans.Math\Hans.Math.Standard.csproj">
       <Project>{EE5B0E8C-58EA-4557-8007-B356AB7DAC74}</Project>
-      <Name>Hans.Math</Name>
+      <Name>Hans.Math.Standard</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
