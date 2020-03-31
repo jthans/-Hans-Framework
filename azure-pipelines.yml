@@ -45,7 +45,6 @@ steps:
     command: 'pack'
     nobuild: true
     allowPackageConflicts: true
-    command: pack
     configuration: '$(BuildConfiguration)'
     packagesToPack: 'Hans\**\*.csproj;!**\*Test.csproj'
     versioningScheme: byPrereleaseNumber
