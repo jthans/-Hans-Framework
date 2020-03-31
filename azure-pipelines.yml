@@ -1,60 +1,56 @@
-# .NET Desktop
-# Build and run tests for .NET Desktop or Windows classic desktop solutions.
-# Add steps that publish symbols, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
-
 pool:
-  vmImage: 'VS2017-Win2016'
-
-variables:
-  solution: '**/Hans.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+  name: Azure Pipelines
+#Your build pipeline references an undefined variable named ‘Parameters.solution’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references an undefined variable named ‘Parameters.ArtifactName’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
 
 steps:
 - task: NuGetToolInstaller@0
+  displayName: 'Use NuGet 4.9.1'
   inputs:
-        versionSpec: '4.9.1'
+    versionSpec: 4.9.1
 
-# Restore Nuget Packages
 - task: NuGetCommand@2
   displayName: 'NuGet Restore'
   inputs:
-    restoreSolution: '$(solution)'
+    restoreSolution: '$(Parameters.solution)'
+    vstsFeed: 'ebf47062-174c-46eb-b852-a4e866306335'
 
-# Build Solution Files
-- task: VSBuild@1
-  displayName: '.Net Build'
-  inputs:
-    solution: '$(solution)'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-    
-# Unit Testing
 - task: DotNetCoreCLI@2
-  displayName: 'Run Unit Tests'
+  displayName: 'dotnet build'
+  inputs:
+    projects: 'Hans\**\*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet test'
   inputs:
     command: test
-    projects: '**\*Test.csproj'
-    arguments: '--configuration $(BuildConfiguration) --collect "Code coverage" --filter TestCategory!="LocalDependent"'
+    projects: 'Hans\**\*Test.csproj'
+    arguments: '--filter TestCategory!="LocalDependent"'
 
-# Build NuGet Packages
+- task: PublishSymbols@2
+  displayName: 'Publish symbols path'
+  inputs:
+    SearchPattern: '**\bin\**\*.pdb'
+    PublishSymbols: false
+  continueOnError: true
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+    ArtifactName: '$(Parameters.ArtifactName)'
+  condition: succeededOrFailed()
+
 - task: DotNetCoreCLI@2
-  displayName: 'Nuget Pack'
+  displayName: 'dotnet pack'
   inputs:
     command: pack
-    nobuild: true
-    allowPackageConflicts: true
-    configuration: '$(BuildConfiguration)'
-    packagesToPack: 'Hans\**\*.csproj;!**\*Test.csproj'
+    packagesToPack: '**/*Standard.csproj'
     versioningScheme: byPrereleaseNumber
-    arguments: '--force --no-cache'
 
-# Publish NuGet Packages
-- task: NuGetCommand@2
-  displayName: 'NuGet Push'
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet push'
   inputs:
     command: push
-    nuGetFeedType: internal
-    packagesToPush: '$(build.artifactStagingDirectory)/*.nupkg'
-    publishVstsFeed: 'Hans-Nuget'
+    publishVstsFeed: 'ebf47062-174c-46eb-b852-a4e866306335'
+
