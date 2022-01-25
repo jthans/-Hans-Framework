@@ -1,6 +1,7 @@
 ﻿using Hans.Logging.Interfaces;
 using Hans.Logging.Loggers;
 using Hans.Logging.Models;
+using Hans.Logging.Models.Configuration;
 using System;
 
 namespace Hans.Logging
@@ -15,7 +16,7 @@ namespace Hans.Logging
         /// <summary>
         ///  The logging thread that cycles as long as the application is active.
         /// </summary>
-        private static LoggerThread logThread = new LoggerThread();
+        private static LoggerThread logThread = null;
 
         #endregion
 
@@ -49,12 +50,28 @@ namespace Hans.Logging
                 logThread.LogMessageQueue.Enqueue(logMsg);
             }
         }
+        
+        /// <summary>
+        ///  Allows us to configure the logging components - This is focused on a startup call within <see cref="StartLogging" />, however the library is set up to handle real-time updates if
+        ///     this method is called again.
+        /// </summary>
+        /// <param name="config">Configuration defining which log exporters will be created - If null, will create only a Console logger (aiming for "out of the box" readiness)
+        public static void ConfigureLogging(LoggingConfiguration config = null)
+        {
+            logThread = new LoggerThread(config);
+        }
 
         /// <summary>
         ///  Starts the logging thread.
         /// </summary>
         public static void StartLogging()
         {
+            // If the thread doesn't exist, we need to create it.  We're assuming if they called this without configuration, we just want to start bare-bones.
+            if (logThread == null)
+            {
+                ConfigureLogging();
+            }
+
             // We don't want to start another if it's already running.
             if (logThread.Running)
             {
