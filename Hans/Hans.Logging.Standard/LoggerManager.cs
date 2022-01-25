@@ -45,9 +45,12 @@ namespace Hans.Logging
         /// <param name="logMsg">The message to queue in the thread.</param>
         public static void QueueMessage(Log logMsg)
         {
-            lock (logThread.LogMessageQueue)
+            if (logThread != null)
             {
-                logThread.LogMessageQueue.Enqueue(logMsg);
+                lock (logThread.LogMessageQueue)
+                {
+                    logThread.LogMessageQueue.Enqueue(logMsg);
+                }
             }
         }
         
