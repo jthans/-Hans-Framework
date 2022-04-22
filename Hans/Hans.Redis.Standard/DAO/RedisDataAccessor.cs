@@ -1,5 +1,7 @@
 ﻿using Hans.Logging;
+using Hans.Logging.Enums;
 using Hans.Logging.Interfaces;
+using Newtonsoft.Json;
 using System;
 using System.Net.Sockets;
 using TeamDev.Redis;
@@ -121,6 +123,31 @@ namespace Hans.Redis.DAO
         }
 
         /// <summary>
+        ///  Gets an object from the Redis cache. Depends on Newtonsoft serialization.
+        /// </summary>
+        /// <param name="keyVal"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public T GetValue<T>(string keyVal)
+        {
+            string resultStr = this.GetValue(keyVal);
+            if (resultStr == null)
+            {
+                return default(T);
+            }
+
+            try 
+            {
+                return JsonConvert.DeserializeObject<T>(resultStr);
+            }
+            catch (Exception)
+            {
+                this.log.LogMessage($"Object { keyVal } could not be deserialized into type { typeof(T).ToString() }.  Returning NULL.", LogLevel.Error);
+                return default(T);
+            }
+        }
+
+        /// <summary>
         ///  Sets the value in this instance.
         /// </summary>
         /// <param name="keyVal">Key value we're setting a value for.</param>
@@ -128,6 +155,17 @@ namespace Hans.Redis.DAO
         public void SetValue(string keyVal, string valStr)
         {
             this.redisDap?.ExecuteRedisCommand(this.log, RedisCommand.SET, keyVal, valStr);
+        }
+
+        /// <summary>
+        ///  Sets the value, as an object - Meaning JSON objects are acceptable.
+        /// </summary>
+        /// <param name="keyVal">Key at which to save the value.</param>
+        /// <param name="valObj">The JSON/Model we'll be saving.</param>
+        public void SetValue(string keyVal, object valObj)
+        {
+            string saveJson = JsonConvert.SerializeObject(valObj);
+            this.SetValue(keyVal, saveJson);
         }
 
         #endregion

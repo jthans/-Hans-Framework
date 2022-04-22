@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="TeamDev.Redis.Client" Version="1.0.4" />
   </ItemGroup>
 
