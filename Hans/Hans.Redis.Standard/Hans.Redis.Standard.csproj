@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Hans.Redis.Standard</AssemblyName>
+    <RootNamespace>Hans.Redis.Standard</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hans.Extensions.Standard\Hans.Extensions.Standard.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TeamDev.Redis.Client" Version="1.0.4" />
+  </ItemGroup>
+
+</Project>

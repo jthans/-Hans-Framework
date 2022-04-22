@@ -69,13 +69,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Hans.DependencyInjection\Hans.DependencyInjection.csproj">
-      <Project>{9E2AEC3A-1F3F-4C05-B2AE-314BDA18A613}</Project>
-      <Name>Hans.DependencyInjection</Name>
+    <ProjectReference Include="..\..\Hans.DependencyInjection\Hans.DependencyInjection.Standard.csproj">
+      <Project>{9A19103F-16F7-4668-BE54-9A1E7A4F7556}</Project>
+      <Name>Hans.DependencyInjection.Standard</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Hans.Redis\Hans.Redis.csproj">
-      <Project>{83dfcd21-fd5b-4d73-879c-e0142c3394f2}</Project>
-      <Name>Hans.Redis</Name>
+    <ProjectReference Include="..\..\Hans.Redis\Hans.Redis.Standard.csproj">
+      <Project>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Project>
+      <Name>Hans.Redis.Standard</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
