@@ -1,14 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
 		<TargetFrameworks>net9.0;</TargetFrameworks>
-    <AssemblyName>Hans.Math.Standard</AssemblyName>
-    <RootNamespace>Hans.Math.Standard</RootNamespace>
+    <AssemblyName>Hans.Redis.Standard</AssemblyName>
+    <RootNamespace>Hans.Redis.Standard</RootNamespace>
     <PackageVersion>1.0.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Hans.Extensions.Standard\Hans.Extensions.Standard.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TeamDev.Redis.Client" Version="1.0.4" />
   </ItemGroup>
 
 </Project>
